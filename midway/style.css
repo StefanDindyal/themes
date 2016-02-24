@@ -1,0 +1,1196 @@
+/*
+Theme Name: Midway Investors
+Theme URI: 
+Author: Stefan Dindyal
+Author URI: 
+Description: The official Midway Investors website.
+Version: 1
+License: 
+License URI: 
+Tags: 
+Text Domain: midway
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+i,em{font-style:italic;}
+b,strong{font-weight:bold;}
+a{text-decoration:none;}
+*{-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
+/*Build*/
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	background-color: #1d1d1d;
+}
+body.clip {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+#page {
+	position: relative;
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 55px 10px 35px;
+}
+
+#nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+.admin-bar #nav {
+	top: 32px;
+}
+#nav ul {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 14px 48px;
+	text-align: center;
+	font-size: 0;
+	height: 65px;
+	background-color: #1d1d1d;
+}
+#nav ul li {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 28px;
+	letter-spacing: 0.14em;
+	color: #999999;
+	text-transform: uppercase;
+	vertical-align: middle;
+	margin: 0 17px;
+}
+#nav ul li.logo {
+	margin: 0 64px;
+}
+#nav ul li.logo a {
+	width: 240px;
+	height: 36px;
+	display: block;
+	background: url(images/logo.png) center no-repeat;
+}
+#nav ul li a {
+	color: #999999;
+}
+#nav.mobile {
+	display: none;
+}
+
+#feature {
+	margin-bottom: 115px;
+}
+#feature .hero {
+	position: relative;
+	height: 600px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#feature .hero .grad {
+	position: absolute;	
+	width: 100%;
+	height: 200px;
+	left: 0;
+	bottom: 0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d1d1d+0,1d1d1d+100&0+0,1+100 */
+	background: -moz-linear-gradient(top,  rgba(29,29,29,0) 0%, rgba(29,29,29,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(29,29,29,0) 0%,rgba(29,29,29,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(29,29,29,0) 0%,rgba(29,29,29,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d1d1d', endColorstr='#1d1d1d',GradientType=0 ); /* IE6-9 */
+}
+#feature .hero .copy {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 160px;
+}
+#feature .hero .copy .inner {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 20px 50px;
+	background-color: rgba(0,0,0,0.6);
+	font-size: 25px;
+	line-height: 30px;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #fff;
+}
+#feature .hero .copy .inner .cta {
+	font-size: 18px;
+	line-height: 25px;
+	font-weight: 200;
+	letter-spacing: 0em;
+	padding-top: 10px;
+}
+#feature .hero .copy .inner .cta a {
+	color: #fff;
+	display: inline-block;
+	padding-right: 25px;
+	background: url(images/arrow-right.png) right center no-repeat;
+	-webkit-transition: 0.3s ease-in-out;
+	-ms-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+}
+#feature .hero .copy .inner .cta a:hover {
+	padding-right: 30px;
+}
+#feature .properties {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	margin: -160px auto 0;
+	font-size: 0;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+#feature .properties .prop {
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 300px;
+	display: inline-block;
+	vertical-align: top;
+	-webkit-transition: 0.3s ease-in-out;
+	-ms-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+	cursor: pointer;
+}
+#feature .properties .prop:hover {
+	/*grayscale for background image*/
+	-webkit-filter: grayscale(1); 
+	-webkit-filter: grayscale(100%); 
+	-moz-filter: grayscale(100%);
+	filter: gray; 
+	filter: grayscale(100%);
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+#feature .properties .prop.a,
+#feature .properties .prop.b {
+	border-bottom: 2px solid #1a1a1a;
+}
+#feature .properties .prop.a,
+#feature .properties .prop.c {
+	border-right: 2px solid #1a1a1a;
+}
+#feature .properties .prop.a,
+#feature .properties .prop.d {
+	width: 70%;
+}
+#feature .properties .prop.b,
+#feature .properties .prop.c {
+	width: 30%;
+}
+#feature .properties .prop .film {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.1;
+}
+#feature .properties .prop .grad {
+	position: absolute;
+	left: 0;
+	bottom: 0;	
+	width: 100%;
+	height: 130px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d1d1d+0,000000+100&0+0,0.75+100 */
+	background: -moz-linear-gradient(top,  rgba(29,29,29,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d1d1d', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+#feature .properties .prop .copy {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 20px 30px;
+	color: #fff;
+}
+#feature .properties .prop .copy .title {
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+#feature .properties .prop .copy p {
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0em;
+	font-weight: 400;
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: 0.25s ease-in-out;
+	-ms-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+}
+#feature .properties .prop:hover .copy p {
+	height: 20px;
+}
+
+section > .title {
+	text-transform: uppercase;
+	font-size: 133px;
+	line-height: 133px;
+	letter-spacing: 0.1em;
+	color: #3f3f3f;
+	font-weight: 100;
+}
+
+#about {
+	padding: 0 50px 0 60px;
+	margin-bottom: 110px;
+}
+#about .title {
+	text-align: center;
+}
+#about .contents {
+	position: relative;
+	margin-top: -40px;
+}
+#about .contents > .img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 66%;
+	height: 440px;
+	display: block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 0 0 30px rgba(0,0,0,1);
+}
+#about .contents .copy {
+	width: 100%;
+	position: relative;
+}
+#about .contents .copy .upper {
+	max-width: 440px;
+	width: 34%;
+	color: #fff;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 200;
+	text-transform: uppercase;
+	padding: 20px 40px;
+}
+#about .contents .copy .upper strong {
+	font-weight: 600;
+}
+#about .contents .copy .lower {
+	background-color: #fff;
+	color: #333;
+	padding: 25px 40px;
+	font-size: 0;
+	width: 68%;
+}
+#about .contents .copy .lower .block {
+	display: inline-block;
+	width: 50%;
+	font-size: 14px;
+	line-height: 22px;
+	vertical-align: top;
+	font-weight: 300;
+	letter-spacing: 0;
+}
+#about .contents .copy .lower .block p {
+	margin-bottom: 20px;
+}
+#about .contents .copy .lower .block p:last-child {
+	margin-bottom: 0;
+}
+#about .contents .copy .lower .block.b {
+	padding-left: 30px;
+}
+
+#properties {
+	max-width: 1250px;
+	width: 100%;
+	margin: 0 auto 140px;
+}
+#properties .title {
+	padding: 0 64px;
+}
+#properties .contents {
+	position: relative;
+	padding: 0 25px;
+	padding-top: 80px;
+}
+#properties .contents .selector {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+}
+#properties .contents .selector .fields {
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 0;
+	box-shadow: 0 0 30px rgba(0,0,0,1)
+}
+#properties .contents .selector .fields .drop,
+#properties .contents .selector .fields .view {
+	display: inline-block;
+	font-weight: 200;
+	text-transform: uppercase;
+	font-size: 18px;
+	line-height: 20px;
+	height: 80px;
+	border-bottom: 1px solid #eaeaea;
+	cursor: pointer;
+}
+#properties .contents .selector .fields .drop {
+	position: relative;
+	padding: 30px 40px 30px 20px;	
+	color: #999;	
+	min-width: 240px;
+	border-right: 1px solid #eaeaea;
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-image: url(images/arrow-down.png);
+}
+#properties .contents .selector .fields .drop.selected {
+	color: #000;
+	background-image: url(images/arrow-down-black.png);
+}
+#properties .contents .selector .fields .drop .under {
+	position: absolute;
+	width: 100%;
+	height: 140px;
+	padding: 5px;
+	border: 1px solid #eaeaea;
+	border-top: 0;
+	top: 80px;
+	left: 0;
+	background-color: #fff;
+	display: none;
+}
+#properties .contents .selector .fields .drop .under ul {
+	list-style: none;
+	height: 100%;
+}
+#properties .contents .selector .fields .drop .under ul li {
+	padding: 2px 15px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #999999;
+	text-transform: uppercase;
+	font-weight: 300;
+	-webkit-transition: 0.25s ease-in-out;
+	-ms-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out;
+}
+#properties .contents .selector .fields .drop .under ul li:hover {
+	background-color: #000;
+	color: #fff;
+}
+#properties .contents .selector .fields .view {
+	padding: 30px 70px 30px 20px;
+	font-weight: 400;
+	color: #1d1d1d;
+	cursor: pointer;
+}
+#properties .contents .selector .fields .view.usa {
+	background: url(images/usa-icon.png) center right no-repeat;
+}
+#properties .contents .selector .fields .view.grid {
+	background: url(images/grid-icon.png) center right no-repeat;
+}
+#properties .contents #usMap {
+	position: absolute;
+	top: 48px;
+	right: 0;
+	display: none;
+}
+#properties .contents .list {
+	position: relative;
+	padding: 0 0.5%;
+	font-size: 0;
+}
+#properties .contents .list ul {
+	position: relative;
+	width: 100% !important;
+	display: block;
+}
+#properties .contents .list .prop {
+	position: relative;
+	padding: 0 1px;
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+}
+#properties .contents .list .prop img {
+	position: relative;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+#properties .contents .list .prop .grad {
+	position: absolute;
+	left: 1px;
+	right: 1px;
+	bottom: 0;	
+	height: 130px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d1d1d+0,000000+100&0+0,0.75+100 */
+	background: -moz-linear-gradient(top,  rgba(29,29,29,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d1d1d', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+#properties .contents .list .prop .content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 20px 18px;
+	color: #fff;
+	width: 100%;
+}
+#properties .contents .list .prop .content .title {
+	padding: 0;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: 500;
+}
+#properties .contents .list .prop .content .location {
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+#properties .contents .list.single .prop {
+	width: 100%;
+}
+#properties .contents .list.double .prop {
+	width: 50%;
+}
+#properties .contents .list.triple .prop {
+	width: 33%;
+}
+#properties .contents .list.single .prop .content .title {
+	font-size: 28px;
+	line-height: normal;
+}
+#properties .contents .list.single .prop .content .location {
+	font-size: 21px;
+	line-height: normal;
+}
+.page_navigation, .pagination {
+	text-align: center;
+	font-size: 0;
+	position: relative;
+	padding-top: 24px;
+	width: 100% !important;
+}
+.page_navigation a, .pagination a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	vertical-align: top;
+	font-weight: 200;
+	font-size: 18px;
+	line-height: 35px;
+	color: #fff;
+	border: 1px solid transparent;
+}
+.pagination li {
+	display: inline-block;
+}
+.page_navigation a.active_page,
+.pagination a.active {
+	border: 1px solid #fff;
+}
+.page_navigation a.previous_link,
+.pagination a.goto_previous {
+	text-indent: -999em;
+	overflow: hidden;
+	background: url(images/arrow-l.png) center no-repeat;
+}
+.page_navigation a.next_link,
+.pagination a.goto_next {
+	text-indent: -999em;
+	overflow: hidden;
+	background: url(images/arrow-r.png) center no-repeat;
+}
+.lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #1d1d1d;
+	background-size: cover;
+}
+.lightbox .grad {
+	position: absolute;
+	left: 0;
+	bottom: 0;	
+	width: 100%;
+	height: 200px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d1d1d+0,000000+100&0+0,0.75+100 */
+	background: -moz-linear-gradient(top,  rgba(29,29,29,0) 0%, rgba(0,0,0,0.80) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.80) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(29,29,29,0) 0%,rgba(0,0,0,0.80) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001d1d1d', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+.lightbox .close {
+	position: absolute;
+	top: 45px;
+	right: 35px;
+	width: 67px;
+	height: 67px;
+	cursor: pointer;
+	background: url(images/close.png) center no-repeat;
+	z-index: 10;
+}
+.lightbox .contents {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 50px;
+	color: #fff;
+}
+.lightbox .contents .left {
+	float: left;
+}
+.lightbox .contents .left h2 {
+	font-size: 28px;
+	line-height: 28px;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+.lightbox .contents .left p {
+	text-transform: uppercase;
+	font-size: 21px;
+	line-height: 21px;
+	font-weight: 700;
+}
+.lightbox .contents .right {
+	float: right;
+	height: 53px;
+}
+.lightbox .contents .right p {
+	text-transform: uppercase;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: 500;
+	display: inline-block;
+	vertical-align: bottom;
+	padding-top: 30px;
+}
+.lightbox .contents .right span {
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 24px;
+}
+#properties .contents .list.mapView {
+	width: 500px;
+	height: 600px;
+	overflow: hidden;
+	margin-top: -60px;
+	padding: 0 0;
+	background-color: #fff;
+}
+#properties .contents .list.mapView #pager {
+	position: relative;
+	padding-right: 30px;
+	overflow: hidden;
+	height: 600px;
+	/*margin-top: 20px;*/
+	/*margin-bottom: 20px;*/
+}
+#properties .contents .list.mapView .list .target {
+
+}
+#properties .contents .list.mapView .page_navigation {
+	display: none;
+}
+#properties .contents .list.mapView .prop {
+	display: block;
+	background-color: #fff;
+	border-bottom: 1px solid #eaeaea;
+	overflow: hidden;
+	padding: 0;
+}
+#properties .contents .list.mapView .prop:hover {
+	background-image: url(images/rollover.png);
+	background-position: center right;
+	background-repeat: no-repeat;
+}
+#properties .contents .list.mapView .prop:last-child {
+	border-bottom: 0;
+}
+#properties .contents .list.mapView .prop .grad {
+	display: none;
+}
+#properties .contents .list.mapView .prop img {
+	max-width: 180px;
+	float: left;
+}
+#properties .contents .list.mapView .prop .content {
+	position: relative;
+	bottom: auto;
+	left: auto;
+	float: left;
+	width: auto;
+	display: inline-block;
+	vertical-align: middle;
+	height: 120px;
+	color: #444;
+	padding-top: 42px;
+}
+#properties .contents .list.mapView .prop .content .title {
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: 500;
+}
+#properties .contents .list.mapView .prop .content .location {
+	font-size: 15px;
+	line-height: 19px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+#principals {
+	padding: 0 100px;
+	margin-bottom: 140px;
+}
+#principals .title {
+	text-align: right;
+	padding: 0 34px;
+}
+#principals .contents {
+	position: relative;
+	margin-top: -45px;
+}
+#principals .contents .images {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: auto;
+	width: 42%;
+	box-shadow: 0 0 30px rgba(0,0,0,1);
+	background-color: #000;
+}
+#principals .contents .images .img {
+	width: 100%;
+	height: 450px;
+	opacity: 0.5;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*grayscale for background image*/
+	-webkit-filter: grayscale(1); 
+	-webkit-filter: grayscale(100%); 
+	-moz-filter: grayscale(100%);
+	filter: gray; 
+	filter: grayscale(100%);
+	filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+#principals .contents .copy {
+	position: relative;
+	width: 70%;
+	padding: 80px 0;
+	height: 900px;
+	display: inline-table;
+	vertical-align: middle;
+	font-size: 18px;
+	line-height: 25px;
+	color: #333;
+	font-weight: 300;
+}
+#principals .contents .copy strong {
+	font-weight: 600;
+	color: #1d1d1d;
+}
+#principals .contents .copy .cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+#principals .contents .copy .list {
+	width: 100%;
+	padding: 45px 50px;
+	background-color: #fff;
+	list-style: none;
+	display: inline-block;
+}
+#principals .contents .copy .list li {
+	margin-bottom: 30px;
+}
+#principals .contents .copy .list li:last-child {
+	margin-bottom: 0;
+}
+#principals .contents .copy .list .title-strong {
+	font-size: 18px;
+	line-height: 34px;
+	color: #1d1d1d;
+	font-weight: 300;
+	background: url(images/rollover-mobile-down.png) center right no-repeat;
+	display: none;
+}
+#principals .contents .copy .list .title-strong.open {
+	background: url(images/rollover-mobile-up.png) center right no-repeat;
+}
+
+#contact {
+	padding: 0 150px 0 100px;
+}
+#contact .title {
+	padding: 0 38px;
+}
+#contact .contents {
+	position: relative;
+	margin-top: -35px;
+	min-height: 600px;
+}
+#map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70%;
+	height: 600px;
+	box-shadow: 0 0 30px rgba(0,0,0,1);
+}
+#map .firstHeading {
+	padding-right: 20px;
+}
+#contact .contents .copy {
+	position: relative;
+	display: inline-table;
+	width: 40%;
+	height: 600px;
+	padding: 30px 0;
+	float: right;
+	color: #333;
+}
+#contact .contents .copy .cell {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+#contact .contents .copy .cell .block {
+	background-color: #fff;
+	display: block;
+	text-align: left;
+}
+#contact .contents .copy .cell .block .title {
+	padding: 30px 50px;
+	font-size: 18px;
+	line-height: 23px;
+	font-weight: 300;
+}
+#contact .contents .copy .cell .block .address {
+	padding: 0 50px 35px;
+	list-style: none;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 23px;
+}
+#contact .contents .copy .cell .block .form {
+	position: relative;
+	padding: 0 50px 65px;	
+}
+#contact .contents .copy .cell .block .form form {
+	display: block;
+}
+#contact .contents .copy .cell .block .form form .resp {
+	padding: 0px 0 10px;
+	display: none;
+}
+#contact .contents .copy .cell .block .form form .inner {
+	border: 1px solid #eaeaea;	
+}
+#contact .contents .copy .cell .block .form form input[type="text"],
+#contact .contents .copy .cell .block .form form textarea {
+	display: block;
+	border: 0;
+	padding: 0 20px;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: normal;
+	font-weight: 300;
+	color: #999999;
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+	font-family: 'Raleway', sans-serif;
+}
+#contact .contents .copy .cell .block .form form input[type="text"] {
+	border-bottom: 1px solid #eaeaea;
+	height: 40px;
+}
+#contact .contents .copy .cell .block .form form textarea {
+	height: 140px;
+	padding: 12px 20px;
+	max-width: 100% !important;
+	min-width: 100% !important;
+	width: 100% !important;
+	max-height: 140px !important;
+}
+#contact .contents .copy .cell .block .form form input[type="submit"] {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 140px;
+	height: 40px;
+	background-color: #1d1d1d;
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 200;
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
+	border: 0;
+}
+
+#footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 35px;
+	line-height: 35px;
+	background-color: #000;	
+	color: #666666;
+	z-index: 8;
+}
+#footer .inner {
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 48px;
+	margin: 0 auto;
+}
+#footer a {
+	color: #666666;
+}
+
+/*Mobile*/
+@media only screen and (max-width: 1280px) {
+	section > .title {
+		font-size: 122px;
+	}
+	#about .contents .copy .upper {
+		padding: 20px 30px;
+	}
+}
+@media only screen and (max-width: 1024px) {
+	#about {
+		padding: 0;
+	}
+	#principals {
+		padding: 0;
+	}
+	#principals .contents .copy {
+		padding: 10px 0;
+	}
+	#contact {
+		padding: 0;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#page {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#nav ul li {
+		display: none;
+	}
+	#nav ul li.logo {
+		display: inline-block;
+		width: 100%;
+		margin: 0;
+	}
+	#nav ul li.logo a {
+		margin: 0 auto;
+	}
+	#hamburger {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 40px;
+		height: 65px;
+		background: url(images/hamburger.png) center no-repeat;
+		z-index: 11;
+		cursor: pointer;
+	}
+	.admin-bar #hamburger {
+		top: 0px;
+	}
+	.admin-bar #nav {
+		top: 0px;
+	}
+	#nav.mobile {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #1d1d1d;
+		z-index: 9;
+	}
+	#nav.mobile ul {
+		padding: 0;
+		padding-top: 85px;
+		height: auto;
+	}
+	#nav.mobile ul li {
+		display: block;
+		width: 100%;
+		text-align: left;
+		margin: 0;
+		padding: 15px 10px;
+	}
+	#nav.mobile ul li a {
+		font-size: 30px;
+		line-height: 30px;
+		color: #999;
+	}
+	#feature {
+		margin-bottom: 65px;
+	}
+	#feature .hero {
+		height: 305px;
+	}
+	#feature .hero .copy {
+		padding: 0 10px;
+		bottom: 0;
+	}
+	#feature .hero .copy .inner {
+		padding: 15px;
+		font-size: 15px;
+		line-height: 20px;
+	}
+	#feature .hero .copy .inner .cta {
+		font-size: 14px;
+	}
+	#feature .properties {
+		margin-top: 0;
+	}
+	#feature .properties .prop {
+		height: 180px;
+		width: 100%;
+		border: 0;
+	}
+	#feature .properties .prop.a, #feature .properties .prop.d,
+	#feature .properties .prop.b, #feature .properties .prop.c {
+		width: 100%;
+		border: 0;
+	}
+	section > .title {
+		font-size: 40px;
+		line-height: 40px;
+		text-align: left;
+		padding: 0 10px;
+	}
+	#about {
+		margin-bottom: 65px;
+	}
+	#about .title {
+		text-align: left;
+	}
+	#about .contents {
+		margin-top: -10px;
+	}
+	#about .contents > .img {
+		height: 190px;
+		width: 275px;
+		right: auto;
+		left: 0;
+	}
+	#about .contents > .img:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.5);
+	}
+	#about .contents .copy .upper {
+		font-size: 14px;
+		line-height: 20px;
+		padding: 20px;
+		width: 100%;
+		max-width: 275px;
+	}
+	#about .contents .copy .lower {
+		margin-left: 10px;
+		margin-right: 10px;
+		width: auto;
+		padding: 25px 15px;
+	}
+	#about .contents .copy .lower .block {
+		width: 100%;
+		font-size: 14px;
+		line-height: 20px;
+	}
+	#about .contents .copy .lower .block.a {
+		margin-bottom: 20px;
+	}
+	#about .contents .copy .lower .block.b {
+		padding: 0;
+	}
+	#properties {
+		margin-bottom: 65px;
+	}
+	#properties .title {
+		padding: 0 10px;
+	}
+	#properties .contents {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#properties .contents .selector {
+		top: -10px;
+	}
+	#properties .contents .selector .fields .view {
+		display: none;
+	}
+	#properties .contents .selector .fields .drop, #properties .contents .selector .fields .view {
+		font-size: 14px;
+	}
+	#properties .contents .selector .fields .drop {
+		min-width: 170px;
+		height: 60px;
+		padding: 20px 40px 20px 20px;
+		border-right: 0;
+	}
+	#properties .contents .selector .fields .drop .under {
+		top: 60px;
+	}
+	#properties .contents .list {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	#properties .contents .list .prop {
+		width: 100% !important;
+		padding: 0;
+		/*height: 220px;*/
+	}
+	#principals {
+		margin-bottom: 65px;
+	}
+	#principals .title {
+		text-align: left;
+		padding: 0 10px;
+	}
+	#principals .contents {
+		margin-top: -10px;
+		padding: 0 10px;
+	}
+	#principals .images {
+		display: none;
+	}
+	#principals .contents .copy {
+		padding: 0;
+		width: 100%;
+		height: auto;
+		box-shadow: 0 0 10px rgba(0,0,0,1);
+		font-size: 14px;
+		line-height: 20px;
+	}
+	#principals .contents .copy .cell {
+		vertical-align: top;
+	}
+	#principals .contents .copy .list {
+		padding: 25px 15px;
+	}
+	#principals .contents .copy .list li {
+		border-bottom: 1px solid #dddddd;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
+	#principals .contents .copy .list li:last-child {
+		padding-bottom: 0;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+	#principals .contents .copy .list .title-strong {
+		display: block;
+		margin-bottom: 0px;
+		cursor: pointer;
+	}
+	#principals .contents .copy .list .inner {
+		display: none;
+		padding-top: 10px;
+	}
+	#contact .contents {
+		margin-top: -10px;
+		padding-top: 280px;
+	}
+	#map {
+		height: 320px;
+		width: 100%;
+	}
+	#contact .contents .copy {
+		width: auto;
+		float: none;
+		margin: 0 10px;
+		display: block;
+		padding: 0;
+		height: auto;
+		margin-bottom: 25px;
+	}
+	#contact .contents .copy .cell {
+		display: block;
+	}
+	#footer {
+		position: relative;
+		text-align: center;
+		height: auto;
+		font-size: 14px;
+		line-height: 28px;
+		padding: 12px 0;
+	}
+	#footer .inner {
+		padding: 0 10px;
+	}
+	#footer .divider {
+		display: block;
+		text-indent: -999em;
+		overflow: hidden;
+		height: 1px;
+		width: 100%;
+		line-height: 1px;
+	}
+	#page {
+		padding-bottom: 0;
+	}
+}
+
+/*Utility*/
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.hidetext { font-size: 5%; text-indent: -9999em; text-align: left; color: transparent; white-space: nowrap; outline: none; }
