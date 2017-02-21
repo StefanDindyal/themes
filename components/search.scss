@@ -1,0 +1,350 @@
+.search-component {
+  $form-margin-top: 20px;
+  $form-margin-top-small: 0px;
+
+  $form-height-small: 24px;
+  $form-height: 85px;
+  $opening-time: 0.3s;
+
+  $resultsCounter-padding-top-small: 10px;
+  $resultsCounter-padding-top: 17.5px;
+  $resultsCount-height: 31px;
+  position: fixed;
+  top: $navSmall-height;
+  width: 100%;
+  opacity: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  transition: left $navSmall-animation-time;
+  left: 0;
+  &.show {
+    z-index: $index-6;
+    opacity: 1;
+  }
+  background-color: transparent;
+  text-align: center;
+
+  & > .inner{
+    height: 100%;
+  }
+  &.left {
+    left: -100%;
+  }
+  &.expand {
+    bottom: 0;
+  }
+  &.no-results {
+    .label-no-results {
+      display: block;
+    }
+    .search-results {
+      display: none;
+    }
+  }
+  &.loading .loader {
+    display: block;
+  }
+  .label-no-results {
+    color: white;
+    font-size: 40px;
+    margin-top: 10%;
+    display: none;
+  }
+  .close-btn {
+    display: none;
+  }
+  .search-form {
+    margin: $form-margin-top-small auto;
+    height: $form-height-small;
+    width: 95.3125%;
+    color: white;
+    border-bottom: 1px solid white;
+    position: relative;
+    .search-submit {
+      position: absolute;
+      right: 0;
+      bottom: 8px;
+      border: none;
+      outline: none;
+      width: 16px;
+      height: 16px;
+      background: transparent;
+      padding: 0;
+      &:before {
+        content: '\ea01';
+        font-family: $font-icons;
+        font-size: 15px;
+        line-height: 100%;
+      }
+      &:hover:before {
+        color: $nav-hover-font-color;
+      }
+    }
+    .search-field {
+      background: none;
+      border: 0;
+      font-size: 17px;
+      width: 100%;
+      padding: 0 46px 0 0;
+      outline: none;
+    }
+  }
+
+  .search-results {
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+    height: calc(100% - #{$form-margin-top-small} - #{$form-height-small});
+    .inner{
+      padding-top: $resultsCounter-padding-top-small;
+      height: calc(100% - #{$resultsCounter-padding-top-small} - #{$resultsCount-height});
+      overflow-y: auto;
+    }
+  }
+  .search-results table {
+    color: #B3B3B3;
+    text-align: left;
+    margin: 0 auto;
+    h1 {
+      font-size: 14px;
+      color: white;
+      margin: 0;
+      font-family: $font-bold;
+      line-height: 1.4;
+    }
+    p, a {
+      font-size: 12px;
+      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color:$theme-main-color;
+    }
+    a{
+      word-break: break-all;
+      color: $theme-green-color;
+      display: block;
+    }
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+      color:$theme-main-color;
+      font-family: $font-bold;
+      font-size: 14px;
+    }
+    td {
+      vertical-align: top;
+    }
+    tr td:first-child {
+      width: 20%;
+      text-align: right;
+    }
+    tr td:last-child {
+      width: 80%;
+      padding-left: 25px;
+    }
+    tr:not(:first-child) td {
+      padding-top: 7px;
+    }
+  }
+  .results-count {
+    color: white;
+    display: block;
+    font-size: 22px;
+    padding-top: $resultsCounter-padding-top-small;
+
+  }
+  .loader {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pagination{
+    margin-top: 10px;
+  }
+  .pagination > li > a,
+  .pagination > li > span {
+    background-color: transparent;
+    color: white;
+    margin-left: 4px;
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+  .pagination > li:first-child > a,
+  .pagination > li:last-child > a {
+    border-radius: 0;
+    width: 18px;
+    height: 21px;
+    padding: 0;
+    position: relative;
+
+    .pag-arrow{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      
+      &.next{
+        border-width: 4px 0 4px 8px;
+        border-color: transparent transparent transparent $theme-main-color;
+      }
+
+      &.prev{
+        border-width: 4px 8px 4px 0;
+        border-color: transparent $theme-main-color transparent transparent;
+      }
+    }
+  }
+
+  .pagination > .disabled > a:hover > .pag-arrow{
+    &.next{
+      border-color: transparent transparent transparent #828282;
+    }
+
+    &.prev{
+      border-color: transparent #828282 transparent transparent;
+    }
+  }
+
+  .pagination > .active > a,
+  .pagination > .active > a:hover,
+  .pagination > .active > a:focus,
+  .pagination > .active > span,
+  .pagination > .active > span:hover,
+  .pagination > .active > span:focus {
+    background-color: white;
+    color: black;
+    border-color: white;
+  }
+
+  // Typeahead styling
+  .twitter-typeahead {
+      width: 100%;
+
+      .search-field.tt-hint {
+        // !important is required in this case since the plugin sets this property at element level.
+        opacity: 0.5 !important;
+      }
+      .title {
+        font-family: $font-light;
+      }
+      .suggestion {
+        cursor: pointer;
+        &:not(:last-child):after {
+          content: ", ";
+        }
+      }
+
+      .tt-menu {
+        margin-top: 20px;
+        display: block !important;
+      }
+  }
+
+  //  tablets and up
+  @include sm {
+    &.small .search-results p {
+      max-height: 60px;
+    }
+
+    .search-results .inner{
+      padding-top: 10px;
+    }
+
+    .search-results table {
+      tr:not(:first-child) td {
+        padding-top: 30px;
+      }
+    }
+
+    .results-count{
+      margin-top: 16;
+    }
+    .search-results table {
+      tr td:first-child {
+        width: 30%;
+      }
+      tr td:last-child {
+        width: 70%;
+      }
+    }
+  }
+
+  // desktops and up
+  @include md {}
+
+  // large desktops
+  @include lg {
+    position: fixed;
+    top: $navHeight;
+    z-index: $index-b;
+    min-height: 290px;
+    opacity: 0;
+    background-color: $sub-menu-background-color;
+    transition: opacity $opening-time, z-index 0s $opening-time, top $navAnimationTime;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    &.clearNav {
+      top: $navHeightBig;
+    }
+    &.small,
+    &.small.show {
+      display: none;
+    }
+    &.show {
+      transition: opacity $opening-time;
+    }
+
+    .close-btn {
+      @include searchCloseMark();
+    }
+
+    .search-form {
+      width: 80%;
+      margin-top: $form-margin-top;
+      height: $form-height;
+      border-bottom: 2px solid white;
+      .search-submit {
+        bottom: 10px;
+        width: 31px;
+        height: 31px;
+        &:before {
+          content: '\ea01';
+          font-family: $font-icons;
+          font-size: 30px;
+          line-height: 100%;
+        }
+      }
+      .search-field {
+        background: none;
+        border: 0;
+        font-size: 60px;
+        width: 100%;
+        padding: 0 46px 0 0;
+        outline: none;
+      }
+    }
+    .search-results {
+      width: 70%;
+      height: calc(100% - #{$form-margin-top} - #{$form-height});
+    }
+    .search-results .inner {
+      padding-top: $resultsCounter-padding-top;
+      height: calc(100% - #{$resultsCounter-padding-top} - #{$resultsCount-height});
+    }
+    .results-count {
+        padding-top: $resultsCounter-padding-top;
+    }
+  }
+
+  // extra small devices only
+  @include xs-only {}
+  // tablets only
+  @include sm-only {}
+  // desktops only
+  @include md-only {}
+}

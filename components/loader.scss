@@ -1,0 +1,37 @@
+.loader {
+  margin: 100px auto 0;
+  width: 33px;
+  height: 38px;
+  display: none;
+
+  &.big{
+    width: 66px;
+    height: 77px;
+  }
+}
+
+.loader .image{
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/loader.svg");
+  background-repeat: no-repeat;
+  animation: spin 2.3s infinite 0.5s;
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-35deg);
+  }
+  35% {
+    transform: rotate(-35deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

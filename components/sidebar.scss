@@ -1,0 +1,83 @@
+/*
+ *  NOTE: specific widget rules can be found in assets/worpress-widgets folder
+*/
+
+.sidebar {
+	section {
+    margin-bottom: 45px;
+    ol {
+      margin-left: 20px;
+      counter-reset: li;
+      li {
+        list-style: none;
+        position: relative;
+        &:before {
+          content: counter(li)'.';
+          counter-increment: li;
+          position: absolute;
+          left: -20px;
+        }
+      }
+    }
+		ul,
+    ol {
+			padding: 0;
+      margin-bottom: 50px;
+      list-style: none;
+
+			li {
+        @include element-margin-top-bottom(11px);
+				a {
+					color: $sidebar-font-color;
+					display: inline-block;
+				}
+			}
+		}
+		h3 {
+			font-family: $font-semibold;
+			font-size: 14px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			color: $sidebar-font-color;
+			padding-bottom: 14px;
+			border-bottom: 2px solid;
+      margin-bottom: 24px;
+		}
+
+    &:last-of-type ul{
+      margin-bottom: 0;
+    }
+	}
+
+  /** MEDIA QUERIES **/
+
+  /*  tablets and up */
+  @include sm{
+
+  }
+
+  /*  desktops and up */
+  @include md{
+
+  }
+
+  /*  large desktops */
+  @include lg{
+
+  }
+
+  /*  extra small devices only */
+  @include xs-only{
+
+  }
+
+  /*  tablets only */
+  @include sm-only{
+
+  }
+
+  /*  desktops only */
+  @include md-only{
+
+  }
+}

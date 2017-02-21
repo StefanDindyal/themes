@@ -1,0 +1,141 @@
+.language-selector{
+	
+	position: fixed;
+	width: 100%;
+	height: auto;
+	background-color: transparent;
+	z-index: $index-b;
+	opacity: 0;
+
+	&.small{
+		opacity: 1;
+	}
+
+
+	.close-btn {
+	    display: none;
+  	}
+
+	.languages-container{
+		position: relative;
+		color: $theme-main-color;
+	  	.secondary-title{
+			display: none;
+	  	}
+
+	  	.languages{
+	  		list-style-type: none;
+	  		padding: 0;
+	  		margin: 0;
+
+	  	}
+
+	  	.language{
+			&>h1{
+				margin: 0;
+			}
+
+			&:hover{
+				a.lang{
+					color: $nav-hover-font-color;
+					.lang-badge{
+						color: $nav-hover-font-color;
+						border-color: $nav-hover-font-color;
+					}
+				}
+			}
+	  		.lang{
+	  			display: block;
+				font-family: $font-thin;
+				font-size: $font-language-selector-size;
+	  			text-decoration: none;
+	  			color: $theme-main-color;
+	  			position: relative;
+				.lang-badge{
+					@include languageSquareButton(26px,26px, 6.5px);
+					@include vertical-centered();
+					left: $navSmall-options-padding-left-right;
+				}
+
+	  		}
+	  	}
+  	}
+
+  /** MEDIA QUERIES **/
+
+  /*  tablets and up */
+  @include sm{
+  }
+
+  /*  desktops and up */
+  @include md{
+  	
+  }
+
+  /*  large desktops */
+  @include lg{
+	$opening-time: 0.3s;
+	top: $navHeight;
+	transition: opacity $opening-time, z-index 0s $opening-time, top $navAnimationTime;
+	background-color: $sub-menu-background-color;
+	z-index: $index-b;
+	opacity: 0;
+
+	padding: 60px;
+	&.show {
+	    z-index: $index-6;
+	    opacity: 1;
+	    transition: opacity $opening-time;
+  	}
+  	&.clearNav{
+		top: $navHeightBig;
+	}
+	.close-btn {
+		@include searchCloseMark();
+	}
+	.languages-container{
+		margin: 20px auto 0px auto;
+	    border-top: 2px solid $theme-main-color;
+	    padding-left: 0;
+		padding-top: 20px;
+		width: 450px;
+
+	  	.secondary-title{
+			text-transform: uppercase;
+			display: inline-block;
+			position: absolute;
+			top: -38px;
+			margin: 0;
+	  	}
+	  	.back-button-container{
+			display: none;	
+		}
+	  	.language .lang{
+	  		padding-left: 70px;
+	  		padding-top: 4px;
+			&:after{ 
+				@include logoInAfter($width: 66px, $height: 34px, $top: 17px);
+			}
+		  	.lang-badge{
+				@include languageSquareButton();
+		  	}
+	  	}
+  	}
+  }
+
+  /*  extra small devices only */
+  @include xs-only{
+
+  }
+
+  /*  tablets only */
+  @include sm-only{
+
+  }
+
+  /*  desktops only */
+  @include md-only{
+
+  }
+
+}

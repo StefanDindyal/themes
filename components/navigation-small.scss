@@ -1,0 +1,205 @@
+#navigationDivSmall {
+  $options-padding-top-bottom: 17px;
+  $options-padding: $options-padding-top-bottom $navSmall-options-padding-left-right;
+  $navFont-color-hover: $theme-green-color;
+  $navFontClear-color-hover: $theme-color-black-pearl;
+  $navFont-color: $theme-main-color;
+  $dividers-border: 1px solid rgba(255, 255, 255, 0.2);
+  $arrows-width: 74px;
+  width: 100%;
+  height: $navSmall-height;
+  position: fixed;
+  background: $navBackColor;
+  z-index: $index-6;
+  top: 0;
+  left: 0;
+  color:$navFont-color;
+  transition: $nav-transition-background;
+
+  &.clearNav{
+    background: $clear-navBackColor;
+    
+    button.collapse-button:hover{
+      color:$navFontClear-color-hover;
+      &:before{
+        color:$navFontClear-color-hover;
+      }
+    }
+  }
+
+  li a, button:not(.lang-badge){
+    color:$navFont-color;
+    &:before{
+      color:$navFont-color;
+    }
+  }
+  li a:hover,
+  button:not(.lang-badge):hover{
+    color: $navFont-color-hover;
+    &:before{
+      color: $navFont-color-hover;
+    }
+  }
+  .brand {
+    @include vertical-centered();
+    z-index: $index-1;
+    background-image: url("../img/logo.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 16px;
+    left: $navSmall-padding-left-right;
+  }
+  .collapse-button {
+    z-index: $index-1;
+    width: 20px;
+    outline: none;
+    border: none;
+    color: $navFont-color;
+    font-size: 13px;
+    padding: 0;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    height: $navSmall-height;
+    width: $navSmall-height;
+    padding-right: $navSmall-padding-left-right;
+
+    &:after {
+      content: '\ea05';
+      font-family: "iconsfont";
+    }
+    &.opened:after {
+      content: '\ea06';
+    }
+  }
+  .menu-container {
+    padding-bottom: 60px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: $navSmall-height;
+    bottom: 0;
+    background: $sub-menu-background-color;
+    display: none;
+    &.opened {
+      display: block;
+    }
+  }
+  .menu-container,
+  .menu-container a {
+    font-size: 13px;
+    font-family: $font-semibold;
+    text-decoration: none;
+    line-height: 100%;
+  }
+  .menu-container button.language-button {
+    @include horizontal-centered();
+    transition: left $navSmall-animation-time;
+    @include languageSquareButton();
+    &.left{
+      left: -50%;
+    }
+    &.right{
+      left: 150%;
+    }
+  }
+  .navigation-bar li, 
+  .languages-container li,
+   {
+    height: $navSmall-menu-options-height;
+    font-family: 13px;
+  }
+  .menu-container .next-submenu {
+    display: inline-block;
+    float: left;
+    width: $arrows-width;
+    height: 100%;
+    border: none;
+    border-left: $dividers-border;
+    outline: none;
+    background: transparent;
+    &:before {
+      content: '\ea08';
+      font-family: "iconsfont";
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+  .navigation-bar li a,
+  .languages-container li a {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: $options-padding;
+    position: relative;
+    &.hasSubMenu {
+      width: calc(100% - #{$arrows-width});
+      display: inline-block;
+      float: left;
+    }
+  }
+
+  .languages-container li:not(.back-button-container) a{
+    padding-left: calc(42px + #{$navSmall-options-padding-left-right});
+  }
+
+  .menu-container li:not(.back-button-container) {
+    border-top: $dividers-border;
+    border-bottom: none;
+    &:last-child {
+      border-bottom: $dividers-border;
+    }
+  }
+  .menu-container ul:not(.languages), .menu-container div.language-selector   {
+    position: fixed;
+    top: $navSmall-height;
+    width: 100%;
+    left: 100%;
+    transition: left $navSmall-animation-time;
+    &.past {
+      left: -100%;
+    }
+    &.current {
+      left: 0;
+      z-index: $index-5;
+    }
+    &.navigation-bar {
+      top: $navSmall-height + $navSmall-menu-options-height;
+    }
+  }
+  .navigation-bar ul.current {
+    left: 0;
+  }
+  .menu-container li.back-button-container a {
+    cursor: pointer;
+    &:before {
+      content: '\ea07';
+      font-family: "iconsfont";
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      font-size: 14px;
+      line-height: 100%;
+    }
+  }
+
+  /** MEDIA QUERIES **/
+
+  @media (max-width: 570px) {
+    .menu-container li.back-button-container a:before
+     {
+      left: 1.4%;
+    }
+  }
+
+  /*  tablets and up */
+  @include sm {
+  }
+
+  @include lg {
+    display: none;
+  }
+}

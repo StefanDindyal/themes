@@ -1,0 +1,117 @@
+.publisher{
+	color: $theme-main-font-color;
+	padding: 50px 0px;
+	position: relative;
+	
+	.form-group {
+		margin-bottom: 35px;
+	}
+
+	.input-label{
+	  	display: block;
+  		font-weight: inherit;
+	}
+	.response-required{
+		position: absolute;
+		color: $theme-color-red;
+		right: 0;
+		top: 20px;
+		display: none;
+	}
+	.response-caption{
+		@include horizontal-centered($z-index:auto);
+		white-space: nowrap;
+	    top: 30px;
+	    font-size: 14px;
+	    &.bigger{
+	    	font-size: 17px;
+	    	top: 60px;
+	    }
+	}
+	.text-response{
+    	top: 30px;
+	}
+	.invalid{
+    	&+.response-required{
+			display: block;
+    	}
+    }
+	
+	.checkbox-inline{
+		input[type="checkbox"]{
+			position: absolute;
+			margin-top: 4px;
+		}
+	}
+
+
+
+	.message-container{
+		.message-intro{
+			padding-bottom: 5px;
+		}
+
+		.message{
+			width: 100%;
+	  		&:focus{
+	  			outline: none;
+	  		}
+		}
+	}
+
+	.submit-input{
+		text-align: center;
+		input[type="submit"]{
+			width: 120px;
+		}
+		.publisher-sent{
+			padding-top: 12px;
+  			font-family: "proxima_nova_bold";
+  			display: none;
+		}
+	}
+
+	.hbspt-form{
+		@include hideHubSpotForm();
+	}
+	.modal-title {
+		font-family: $font-bold;
+    	text-transform: uppercase;
+    	color:$theme-dark-font-set-regular;
+	}
+	.sucess-message-form{
+		color:$theme-dark-font-set-regular;
+	}
+	.final-message{
+		font-family: $font-regular;
+		position: relative;
+		padding-right: 200px;
+		&:after{
+			font-family: $font-icons;
+			font-size: 30px;
+			width: 0px;
+			height: 0px;
+			content: '\ea04';
+			color: $theme-green-color;
+			position: absolute;
+		    top: -30px;
+		    right: 25px;
+		}
+	}
+
+
+  /** MEDIA QUERIES **/
+
+  /*  tablets and up */
+  @include sm{
+	.final-message{
+		&:after{
+			font-size: 45px;
+		    top: -45px;
+		    right: 40px;
+		}
+	}
+  }
+
+
+}

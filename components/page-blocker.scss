@@ -1,0 +1,16 @@
+.page-blocker {
+  position: fixed;
+  z-index: $index-b;
+  top: $navHeight;
+  width: 100%;
+  left: 0;
+  height: 100%;
+
+  &.show{
+		z-index: $index-5;
+  }
+
+  &.clearNav {
+    top: $navHeightBig;
+  }
+}

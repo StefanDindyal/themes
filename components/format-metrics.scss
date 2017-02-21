@@ -1,0 +1,60 @@
+.format-metrics-component {
+  .metric-title {
+    font-size: 14px;
+    font-family: $font-bold;
+    position: relative;
+    margin-bottom: 25px;
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: $theme-color-dark-gray;
+      bottom: -7px;
+      left: 0;
+      min-width: 50%;
+      height: 2px;
+      max-width: 226px;
+    }
+  }
+
+  .metric-graphic {
+    height: 81px;
+    border-left: black solid 1px;
+    padding-top: 12px;
+    margin-bottom: 26px;
+  }
+
+  .metric-kpi {
+    display: table;
+    &:first-child {
+      margin-bottom:10px;
+    }
+  }
+
+  .metric-bar, .metric-label {
+    display: inline-block;
+  }
+
+  .metric-bar {
+    background-color: #A8D532;
+    width: 0px;
+    height: 23px;
+    display: table-cell;
+  }
+
+  .metric-kpi.standard .metric-bar {
+    background-color: white;
+    border: $theme-color-dark-gray solid 1px;
+    border-left: 0;
+  }
+
+  .metric-label {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 11px;
+  }
+  .porcentage_value{
+    &:after{
+       content: "%";
+    }
+  }
+}

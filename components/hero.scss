@@ -1,0 +1,75 @@
+.hero-comp {
+
+  .hero, .backgroun-mobile {
+    width: 100%;
+    height: 625px;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .no-hero {
+    height: $navHeight;
+  }
+
+  /*** MEDIA QUERIES ***/
+
+  /* Small devices and up */
+  @include sm{
+    // css rules here...
+
+  }
+
+  /* Medium devices and up */
+  @include md{
+    // css rules here...
+
+  }
+
+  /* Large devices and up */
+  @include lg{
+    // css rules here...
+
+  }
+
+  /* Extra small devices only */
+  @include xs-only{
+    // css rules here...
+
+  }
+
+  /* Small devices only */
+  @include sm-only{
+    // css rules here...
+
+  }
+
+  /* Medium devices only */
+  @include md-only{
+    // css rules here...
+
+  }
+
+  @include landscape{
+    .backgroun-mobile{
+      &.portrait{
+        display: none;
+      }
+
+      &.landscape{
+        display: block;
+      }
+    }
+  }
+
+  @include portrait {
+    .backgroun-mobile{
+      &.portrait{
+        display: block;
+      }
+
+      &.landscape{
+        display: none;
+      }
+    }
+  }
+}

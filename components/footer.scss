@@ -1,0 +1,355 @@
+.footer{
+
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+
+	.links-and-submit{
+		background-color: $theme-color-light-gray;
+		padding: 40px 10px;
+	}
+
+	.hbspt-form-footer,
+	.hbspt-form-footer-complete{
+		@include hideHubSpotForm();
+	}
+
+	.copyright{
+		padding: 0px 60px;
+		background-color: $theme-color-dark-gray;
+		color: $theme-main-color;
+		min-height: 52px;
+		position: relative;
+		z-index: $index-3;
+
+		.copy{
+			margin: 0;
+			padding: 19px 0px;
+		}
+		.iab-logo{
+	        width: 52px;
+		    height: 28px;
+		    right: 62px;
+	    	top: 50%;
+  			transform: translateY(-50%);
+		    position: absolute;
+		    background-repeat: no-repeat;
+		    background-size: contain;
+		    background-image: url('../img/logo-iab@.png');
+		}
+	}
+
+	.triangle-background{
+		top: 0;
+		right: 0;
+		width: 50%;
+		height: 0;
+		line-height: 0px;
+		z-index: $index-2;
+		position: absolute;
+		border-style: solid;
+		border-width: 0px 0px 200px 200px;
+		border-color: transparent transparent $theme-color-gray transparent;
+	}
+
+	.footer-bar{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+	    &>.menu-item{
+			display: inline-block;
+			vertical-align: top;
+			min-height: 230px;
+
+			&>a{
+				width: 100%;
+				height: 40px;
+				letter-spacing: $letter-spacing-big;
+				color: $theme-main-font-color;
+				display: inline-block;
+				padding-bottom: 20px;
+				margin-bottom: 25px;
+				text-transform: uppercase;
+				text-decoration: none;
+				font-family: $font-bold;
+				position: relative;
+
+				&:after{
+					content: "";
+					position: absolute;
+					height: 1px;
+					width: 100%;
+					background-color: $theme-green-color;
+					left: 0;
+					top: 40px;
+				}
+			}
+
+			&:nth-child(3){
+				margin: 25px 0 25px 0;
+			}
+
+			&:nth-child(4){
+				margin: 25px 0 25px 0;
+			}
+	    }
+
+		.sub-menu{
+			list-style-type: none;
+			padding: 0;
+
+			&>.menu-item{
+				margin-top: 15px;
+				position: relative;
+
+				&:first-child{
+					margin-top: 0;
+				}
+
+				a{
+					color: $theme-color-dark-gray;
+					text-decoration: none;
+
+					&[href*="facebook"]{
+						padding-left: 40px;
+						&:after{
+							@include logoInAfter();
+							background-image: url("../img/logo-facebook@.png");
+						}
+					}
+
+					&[href*="glassdoor"]{
+						padding-left: 40px;
+						&:after{
+							@include logoInAfter();
+							background-image: url("../img/logo-glassdoor@.png");
+						}
+					}
+
+					&[href*="twitter"]{
+						padding-left: 40px;
+						&:after{
+							@include logoInAfter();
+							background-image: url("../img/logo-twitter@.png");
+						}
+					}
+
+					&[href*="linked"]{
+						padding-left: 40px;
+						&:after{
+							@include logoInAfter();
+							background-image: url("../img/logo-indesign@.png");
+						}
+					}
+
+					&[href*="youtube"]{
+						padding-left: 40px;
+						&:after{
+							@include logoInAfter();
+							background-image: url("../img/logo-youtube@.png");
+						}
+					}
+				}
+			}
+		}
+	}
+	.footer-newsletter{
+		margin-bottom: 30px;
+	}
+	.form{
+
+		.input-label{
+			color: $theme-main-font-color;
+			font-family: $font-bold;
+			text-transform: uppercase;
+			margin: 0 0 20px 0;
+			text-align: left;
+		}
+
+		.input-container{
+			position: relative;
+			margin: 0;
+			.submit-email{
+				@include buttonStyles($theme-dark-font-set-regular, $theme-main-color, 100px);
+				margin-top: 0;
+				margin-bottom: 20px;
+				position: absolute;
+				top: 0;
+				height: 40px;
+			    width: 275px;
+				&:disabled{
+					opacity: 1;
+				}
+			}
+			.emailfail{
+				border-color: red;
+				color:red;
+			}
+		}
+
+		&.invalid{
+			.input-container{
+				.footer-email-input{
+			    	background-color: $theme-color-red;
+			    }
+			}
+		}
+	}
+	.modal-title {
+		font-family: "proxima_nova_bold";
+    	text-transform: uppercase;
+	}
+	.form-note{
+		font-family: $font-semibold;
+		font-style: italic;
+		margin-top: 10px;
+	}
+	.final-message{
+		position: relative;
+		padding-right: 200px;
+
+		&:after{
+			font-family: $font-icons;
+			font-size: 45px;
+			width: 0px;
+			height: 0px;
+			content: '\ea04';
+			color: $theme-green-color;
+			position: absolute;
+		    top: -45px;
+		    right: 40px;
+		}
+	}
+
+	.links,
+	.form{
+		z-index: $index-3;
+	}
+
+	.modal-dialog {
+		a {
+			color: $theme-green-color;
+		}
+		.modal-header {
+			border: none;
+			padding: 30px;
+			button {
+				color: $theme-main-font-color;
+				font-size: 30px;
+				opacity: 1;
+			}
+			h4 {
+				text-transform: uppercase;
+				color: $theme-main-font-color;
+				font-family: $font-bold;
+			}
+		}
+		.modal-body {
+			padding: 0 30px;
+			h3 {
+				font-size: 14px;
+				margin: 0 0 10px;
+				padding-bottom: 10px;
+				color: $theme-main-font-color;
+				border-bottom: 1px solid $theme-main-font-color;
+			}
+			.sucess-message-form{
+				text-align: center;
+			    margin: 10px 0 25px 0;
+			    display: none;
+			}
+			.response-required{
+				position: absolute;
+				color: $theme-color-red;
+				right: 0;
+				top: 0;
+				display: none;
+			}
+			.invalid{
+		    	&+.response-required{
+					display: block;
+		    	}
+		    }
+		    .btn-form-submit{
+		    	min-width: 125px;
+    			margin: 0 -10px 0 -10px;
+		    }
+		}
+		.modal-footer {
+			border: none;
+			text-align: initial;
+		}
+	}
+
+	.option{
+		margin: 0 auto;
+	}
+
+  /** MEDIA QUERIES **/
+
+  /*  tablets and up */
+  @include sm{
+    .triangle-background{
+      width: 30%;
+    }
+    .footer-bar{
+
+      &>.menu-item{
+
+        &:nth-child(3){
+          margin: 0;
+        }
+
+        &:nth-child(4){
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  /*  desktops and up */
+  @include md{
+    .footer-bar{
+
+      &>.menu-item{
+        max-width: 200px;
+      }
+    }
+    .form{
+		.input-container{
+			.submit-email{
+				max-width: 275px;
+			}
+		}
+	}
+  }
+
+  /*  large desktops */
+  @include lg{
+	.links-and-submit{
+	  padding: 40px 60px;
+	}
+  }
+
+  /*  extra small devices only */
+  @include xs-only{
+	.footer-bar{
+	  &>.menu-item{
+	    &>a{
+		  letter-spacing: 1px;
+	    }
+	  }
+	}
+  }
+
+  /*  tablets only */
+  @include sm-only{
+
+  }
+
+  /*  desktops only */
+  @include md-only{
+
+  }
+}

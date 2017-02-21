@@ -1,0 +1,319 @@
+.ad-component {
+  position: relative;
+}
+
+/** AD TYPE: DEVICES **/
+.ad-component .device-subcomp {
+
+  height: 100%;
+  position: relative;
+
+  .device {
+    position: absolute;
+    bottom: 10px;
+    .video-wrapper {
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .desktop {
+    width: 70%;
+    z-index: $index-1;
+    .video-wrapper {
+      height: 82.1%;
+      width: 74.8%;
+      top: 7%;
+      left: 12.6%;
+    }
+  }
+
+  .tablet {
+    width: 32%;
+    .video-wrapper {
+      width: 86.7%;
+      left: 6.7%;
+      top: 8.8%;
+      height: 82%;
+    }
+  }
+
+  .phone {
+    width: 16%;
+    bottom: 0;
+    z-index: $index-2;
+    .img-landscape {
+      display: none;
+    }
+    .img-portrait {
+      display: block;
+    }
+    .video-wrapper {
+      position: absolute;
+      top: 14.5%;
+      width: 85.5%;
+      left: 7.8%;
+      height: 70.6%;
+    }
+  }
+
+  .phone.landscape {
+    width: 34%;
+    margin-left: -10%;
+    .img-landscape {
+      display: block;
+    }
+    .img-portrait {
+      display: none;
+    }
+    .video-wrapper {
+      width: 69.5%;
+      left: 15.6%;
+      height: 83.4%;
+      top: 7.2%;
+    }
+  }
+
+  /* Specific Positioning depending of the devices selected on WP */
+  &.show-desktop.show-tablet.show-phone,
+  &.show-desktop.show-tablet.show-phone-landscape {
+    .desktop {
+      left: -4%;
+    }
+    .tablet {
+      right: 4%;
+    }
+    .phone {
+      left: 54.2%;
+    }
+  }
+
+  &.show-desktop {
+    .desktop {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.show-tablet {
+    .tablet {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.show-phone {
+    .phone {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .phone.landscape {
+      transform: translateX(-20%);
+    }
+  }
+
+  &.show-desktop.show-tablet {
+    .desktop {
+      left: 0;
+      transform: none;
+    }
+
+    .tablet {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+  }
+
+  &.show-desktop.show-phone,
+  &.show-desktop.show-phone-landscape {
+    .desktop {
+      left: 7%;
+      transform: none;
+    }
+
+    .phone {
+      right: 8%;
+      left: auto;
+      transform: none;
+    }
+  }
+
+  &.show-tablet.show-phone{
+    .tablet {
+      transform: none;
+      left: auto;
+      right: 46%;
+    }
+
+    .phone {
+      transform: none;
+      left: 50%;
+    }
+  }
+
+  &.show-tablet.show-phone-landscape {
+    .tablet {
+      transform: none;
+      left: auto;
+      right: 50%;
+    }
+
+    .phone {
+      transform: none;
+      left: 54%;
+    }
+  }
+
+  &.show-tablet.show-phone.show-phone-landscape {
+    .tablet {
+      transform: none;
+      left: auto;
+      right: 33%;
+    }
+
+    .phone {
+      transform: none;
+      left: 14%;
+    }
+
+    .phone.landscape {
+      transform: none;
+      right: 4%;
+      left: auto;
+    }
+  }
+
+  &.show-desktop.show-phone.show-phone-landscape {
+    .desktop {
+      left: 22%;
+      transform: none;
+      bottom: 6%;
+      width: 56%;
+    }
+
+    .phone {
+      width: 14%;
+      left: 11%;
+      transform: none;
+    }
+
+    .phone.landscape {
+      width: 28%;
+      transform: none;
+      right: 6%;
+      left: auto;
+    }
+  }
+
+  &.show-phone.show-phone-landscape {
+    .phone {
+      left: auto;
+      right: 50%;
+      transform: translateX(-50%);
+    }
+
+    .phone.landscape {
+      left: 54%;
+      right: auto;
+      transform: translateX(-20%);
+    }
+  }
+
+}
+
+/** AD TYPE: SLIDER **/
+.ad-component .slider-subcomp {
+   .carousel{
+    height: 300px;
+
+    .carousel-inner{
+      height: 100%;
+    }
+
+    .item{
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .carousel-control{
+      background-image: none;
+      filter: none;
+    }
+    .carousel-control:hover,
+    .carousel-control:focus{
+      background-image: none;
+      filter: none;
+      opacity: 1;
+    }
+  }
+}
+
+/** AD TYPE: WISTIA **/
+.ad-component .video-subcomp {
+  .wistia-background {
+    width: 100%;
+    height: 300px;
+    background: no-repeat center center;
+    background-size: cover;
+
+    video {
+      position:absolute !important;
+      z-index: $index-1 !important;
+      transform: translateX(-50%) translateY(-50%) !important;
+      top:50% !important;
+      left: 50% !important;
+      min-width: 100% !important;
+      min-height: 100% !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .wistia_romulus_control {
+      display:none!important;
+    }
+  }
+}
+  /** MEDIA QUERIES **/
+.ad-component {
+  /*  tablets and up */
+  @include sm{
+    .slider-subcomp .carousel,
+    .video-subcomp .wistia-background{
+      height: 570px;
+    }
+  }
+
+  /*  desktops and up */
+  @include md{
+
+  }
+
+  /*  large desktops */
+  @include lg{
+
+  }
+
+  /*  extra small devices only */
+  @include xs-only{
+
+  }
+
+  /*  tablets only */
+  @include sm-only{
+
+  }
+
+  /*  desktops only */
+  @include md-only{
+
+  }
+}
