@@ -56,9 +56,9 @@
 
     <!-- Filter View START -->
     <div class="filter-view">
-      <span class="ico reset">Reset</span>
-      <span class="ico tile">Tile</span>
-      <span class="ico list">List</span>  
+      <span class="ico reset"><span class="dashicons dashicons-image-rotate"></span></span>
+      <span class="ico tile"><span class="dashicons dashicons-grid-view"></span></span>
+      <span class="ico list"><span class="dashicons dashicons-list-view"></span></span>  
     </div>    
     <!-- Filter View END -->
 

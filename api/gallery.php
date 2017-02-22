@@ -92,6 +92,8 @@ class Gallery {
       $use_image_tittle =  get_field("use_image_tittle") ?  "visibleTittle": "hidenTittle" ;
       $hide_tittle =  get_field("use_image_tittle") ?  "hidenTittle": "visibleTittle" ;
 
+      $campaignUrl = get_field("campaign_url");
+      $demoCode = get_field("demo_code");
       $contentType = get_field("content_type");
       $typeAudio = in_array('audio', $contentType);
       $typePhoto = in_array('photo', $contentType);      
@@ -112,6 +114,8 @@ class Gallery {
       $entry["typeAudio"] = $typeAudio;
       $entry["typePhoto"] = $typePhoto;
       $entry["typeVideo"] = $typeVideo;
+      $entry["campaignUrl"] = $campaignUrl;
+      $entry["demoCode"] = $demoCode;
       array_push($results, $entry);
     }
     $filters = self::getFilters($format, $device, $args);

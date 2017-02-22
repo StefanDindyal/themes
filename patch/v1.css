@@ -582,6 +582,7 @@ Author: Stefan Dindyal
 	z-index: 9999;
 	-webkit-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
+	background: #fff;
 }
 #campaign.show {
 	left: 0;
@@ -591,6 +592,9 @@ Author: Stefan Dindyal
 }
 .filter-view {
 	padding-top: 12px;
+}
+.filter-nav .reset:before {
+	display: none;
 }
 .filter-view .ico {
 	letter-spacing: normal;

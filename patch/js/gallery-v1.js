@@ -47,9 +47,28 @@
 			var state = path.split('/').pop();
 			var frame = '<div id="campaign"><iframe width="100%" height="100%" src="'+href+'" frameborder="0"></iframe></div>';
 			$('body').append(frame);
-			$('#campaign iframe').attr('src', href);
+			// $('#campaign iframe').attr('src', href);
 			$('#campaign').addClass('show');
 			window.history.pushState({a: state}, '', path);		
+		});
+
+		$(document).on('click', '.demo-it', function(e){	
+			var it = $(this);
+			var code = it.attr('data-code');
+			var state = 'demo';			
+			var frame = '<div id="campaign"><iframe width="100%" height="100%" frameborder="0"></iframe></div>';
+			$('body').append(frame);
+			// $('#campaign iframe').attr('src', href);			
+			var $iframe = $('#campaign iframe');
+			$iframe.ready(function() {
+				setTimeout(function(){
+					$iframe.contents().find("body").append(code);    				
+				}, 100);
+				$('#campaign').addClass('show');
+			});
+			// $('body').append('<div id="campaign">'+code+'</div>');
+			$('#campaign').addClass('show');
+			window.history.pushState({a: state}, '', '#demo');		
 		});
 
 		// $('#campaign iframe').load(function(){
@@ -59,9 +78,9 @@
 		// });
 
 		window.onpopstate = function(event) {
-			console.log(event.state);
+			// console.log(event.state);
 			if(event.state.a == 'gallery'){
-				console.log('gallery');
+				// console.log('gallery');
 				$('#campaign').remove();
 				// $('#campaign').removeClass('show');
 				// $('#campaign iframe').attr('src', '');
@@ -71,7 +90,7 @@
 				// 	$('#campaign iframe').attr('src', '');
 				// });				
 			} else {
-				console.log('campaign');
+				// console.log('campaign');
 			}			
 		}
 

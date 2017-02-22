@@ -44,10 +44,10 @@
               <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">View Campaign</span>
             </div>
             <div class="cap">
-              <span class="btn-cms btn-green demo-it">View Demo</span>
+              <span class="btn-cms btn-green demo-it" data-code="{{demoCode}}">View Demo</span>
             </div>
             <div class="cap play">
-              <span class="btn-play demo-it" href="{{permalink}}" title="View Demo"><span class="dashicons dashicons-controls-play"></span></span>
+              <span class="btn-play demo-it" data-code="{{demoCode}}"><span class="dashicons dashicons-controls-play"></span></span>
             </div>
           </div>
         </div>
