@@ -61,9 +61,8 @@
 			// $('#campaign iframe').attr('src', href);			
 			var $iframe = $('#campaign iframe');
 			$iframe.ready(function() {
-				setTimeout(function(){
-					$iframe.contents().find("body").append(code);    				
-				}, 100);
+				$iframe.contents().find("body").append(code);
+				// $iframe.get(0).contentWindow.location.reload(true);
 				$('#campaign').addClass('show');
 			});
 			// $('body').append('<div id="campaign">'+code+'</div>');
