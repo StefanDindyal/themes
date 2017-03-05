@@ -44,7 +44,10 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';			
-			var frame = $('<iframe id="frameDemo" frameborder="0"/>');
+			var frame = $('<iframe id="frameDemo" frameborder="0"/>');	
+			$('#frameDemo').remove();
+			$('.ut_container').remove();
+			window.undertone = null;		
 			$('body').append(frame);
 			var iframe = $('#frameDemo');
 			iframe.contents().find('body').append(code);		
@@ -53,7 +56,9 @@
 
 		window.onpopstate = function(event) {
 			if(event.state.a == 'gallery'){
-				$('#frameDemo').remove();				
+				$('#frameDemo').remove();
+				$('.ut_container').remove();
+				window.undertone = null;				
 			}			
 		}
 
