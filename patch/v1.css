@@ -585,6 +585,21 @@ Author: Stefan Dindyal
 #campaign.show {
 	left: 0;
 }
+#closegal {
+	position: fixed;
+	z-index: 9999999999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 46px;
+	line-height: 46px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	color: #fff;
+	background-color: #262626;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 #frameDemo {
 	position: fixed;
 	top: 0;
@@ -593,6 +608,11 @@ Author: Stefan Dindyal
 	height: 1px;
 	z-index: 9999;
 	background: transparent;
+}
+#frameDemo.infoit {
+	width: 100%;
+	height: 100%;
+	background: #fff;
 }
 .filter-view {
 	padding-top: 12px;
@@ -676,7 +696,7 @@ Author: Stefan Dindyal
 	line-height: normal;
 }
 .gallery-contents.listed .inner .act.work-types {
-	width: 30%;
+	width: 29%;
 	text-align: right;	
 	padding-right: 10px;
 }
@@ -685,9 +705,13 @@ Author: Stefan Dindyal
 }
 .gallery-contents.listed .inner .act.work-actions {
 	width: 10%;
-	height: 100%;
+	/*height: 100%;*/
 	padding: 16px 0;
-	text-align: center;
+	text-align: center;	
+}
+.gallery-contents.listed .inner .act.liner {
+	height: 100%;
+	width: 1%;
 	border-left: 1px solid #fff;
 }
 .gallery-contents .inner .act.work-actions .play,

@@ -19,6 +19,9 @@ class Gallery {
     $vertical = isset($_GET["vertical"]) ? $_GET["vertical"] : null;
     $feature = isset($_GET["feature"]) ? $_GET["feature"] : null;
     $device = isset($_GET["device"]) ? $_GET["device"] : null;
+    //fav
+    $favorite = isset($_GET["favorite"]) ? $_GET["favorite"] : null;
+    //fav
     $taxQuery = array("relation" => "AND");
     $metaQuery = array("relation" => "AND");
     $results = array();
@@ -28,6 +31,14 @@ class Gallery {
       $formatFilter = array(
         "key" => "ad_format",
         "value"    => serialize(array($format)),
+        "compare"    => "="
+      );
+      array_push($metaQuery, $formatFilter);
+    }
+    if (!empty($favorite)) {
+      $formatFilter = array(
+        "key" => "top_campaign",
+        "value"    => serialize(array($favorite)),
         "compare"    => "="
       );
       array_push($metaQuery, $formatFilter);

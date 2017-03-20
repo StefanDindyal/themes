@@ -7,6 +7,39 @@
 <div class="gallery-tpl">
   <?php get_template_part("partials/gallery-filters"); ?>
 
+  <div class="data">
+  <?php 
+    
+    $args = array(
+      'post_type' => 'campaign',
+      'meta_query' => array(
+        array(
+          'key' => 'top_campaign'
+        )
+      ),      
+      'posts_per_page' => -1
+    );
+
+    $query = new WP_Query( $args );
+
+    // var_dump($query);
+
+    if ( $query->have_posts() ) {
+      echo '<ul>';
+        while ( $query->have_posts() ) {
+          $query->the_post();          
+          echo get_the_title().'<br>';
+        }
+      echo '</ul>';
+      /* Restore original Post Data */
+      wp_reset_postdata();
+    } else {
+      // no posts found
+    }
+
+  ?>
+  </div>
+
   <div class="gallery-contents row">
     <div class="gallery-contents-inner"></div>
     <?php render_component("loader", array("size" => "big")); ?>
@@ -39,13 +72,14 @@
               <div class="type ico video" title="Video"><span class="dashicons dashicons-video-alt2"></span></div>
             {{/if}}
           </div>
+          <div class="act liner"></div>
           <div class="act work-actions">
             <div class="cap">
               <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">View Campaign</span>
             </div>
             <div class="cap">
               <span class="btn-cms btn-green demo-it" data-code="{{demoCode}}">View Demo</span>
-            </div>
+            </div>            
             <div class="cap play">
               <span class="btn-play demo-it" data-code="{{demoCode}}"><span class="dashicons dashicons-controls-play"></span></span>
             </div>

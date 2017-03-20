@@ -33,10 +33,14 @@
 			var href = it.attr('data-perm');
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
-			var frame = $('<iframe id="frameDemo" src="'+href+'" frameborder="0"/>');
+			var frame = $('<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0"/>');
+			$('#frameDemo').remove();
+			$('.ut_container').remove();
+			window.undertone = null;
 			$('body').append(frame);
 			$('#campaign').addClass('show');
-			window.history.pushState({a: state}, '', path);		
+			$('body').append('<div id="closegal">Back</div>');
+			// window.history.pushState({a: state}, '', path);	
 		});
 
 		$(document).on('click', '.demo-it', function(e){
@@ -44,15 +48,26 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';			
-			var frame = $('<iframe id="frameDemo" frameborder="0"/>');	
+			var frame = $('<iframe id="frameDemo" class="demoit" frameborder="0"/>');	
 			$('#frameDemo').remove();
 			$('.ut_container').remove();
 			window.undertone = null;		
 			$('body').append(frame);
 			var iframe = $('#frameDemo');
-			iframe.contents().find('body').append(code);		
-			window.history.pushState({a: state}, '', '#demo');		
+			iframe.contents().find('body').append(code);
+			$('body').append('<div id="closegal">Back</div>');
+			// window.history.pushState({a: state}, '', '#demo');	
 		});
+
+		$(document).on('click', '#closegal', function(e){
+			var it = $(this);
+			$('#closegal').remove();
+			$('#frameDemo').remove();
+			$('.ut_container').remove();
+			window.undertone = null;
+		});
+
+		// top_campaign
 
 		window.onpopstate = function(event) {
 			if(event.state.a == 'gallery'){
