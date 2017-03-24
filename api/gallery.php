@@ -109,6 +109,7 @@ class Gallery {
       $typeAudio = in_array('audio', $contentType);
       $typePhoto = in_array('photo', $contentType);      
       $typeVideo = in_array('video', $contentType);
+      $launchBtn = get_field("show_launch_campaign");
 
       $entry["id"] = get_the_ID();
       $entry["title"] = get_the_title();
@@ -127,6 +128,7 @@ class Gallery {
       $entry["typeVideo"] = $typeVideo;
       $entry["campaignUrl"] = $campaignUrl;
       $entry["demoCode"] = $demoCode;
+      $entry["launchBtn"] = $launchBtn;
       array_push($results, $entry);
     }
     $filters = self::getFilters($format, $device, $args);

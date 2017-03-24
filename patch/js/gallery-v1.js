@@ -33,48 +33,49 @@
 			var href = it.attr('data-perm');
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
-			var frame = $('<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0"/>');
-			$('#frameDemo').remove();
-			$('.ut_container').remove();
-			window.undertone = null;
+			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0"/>';
+			clearDown();
 			$('body').append(frame);
-			$('#campaign').addClass('show');
+			$('body').append('<div id="demoOverlay"></div>');
 			$('body').append('<div id="closegal">Back</div>');
-			// window.history.pushState({a: state}, '', path);	
+			// window.history.pushState({a: state}, '', path);
 		});
 
 		$(document).on('click', '.demo-it', function(e){
 			var href = location.href;
 			var it = $(this);
 			var code = it.attr('data-code');
-			var state = 'demo';			
-			var frame = $('<iframe id="frameDemo" class="demoit" frameborder="0"/>');	
-			$('#frameDemo').remove();
-			$('.ut_container').remove();
-			window.undertone = null;		
+			var state = 'demo';
+			var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0"/>';
+			clearDown();
 			$('body').append(frame);
-			var iframe = $('#frameDemo');
-			iframe.contents().find('body').append(code);
-			$('body').append('<div id="closegal">Back</div>');
-			// window.history.pushState({a: state}, '', '#demo');	
+			$('body').append('<div id="demoOverlay"></div>');
+			$('body').append('<div id="closegal">Close Demo</div>');
+			// window.history.pushState({a: state}, '', '#demo');
 		});
 
 		$(document).on('click', '#closegal', function(e){
-			var it = $(this);
-			$('#closegal').remove();
-			$('#frameDemo').remove();
-			$('.ut_container').remove();
-			window.undertone = null;
+			clearDown();
 		});
-
-		// top_campaign
 
 		window.onpopstate = function(event) {
 			if(event.state.a == 'gallery'){
-				$('#frameDemo').remove();
-				$('.ut_container').remove();
-				window.undertone = null;				
+				clearDown();
 			}			
+		}
+
+		function clearDown(){
+			$('#closegal').remove();
+			$('#frameDemo').remove();
+			$('#demoOverlay').remove();
+			$('body > div').each(function(){
+				var me = $(this);
+				if(me.is('[id="sky"]')){
+					
+				} else {
+					me.remove();
+				}
+			});
 		}
 
 		var path = location.pathname;		

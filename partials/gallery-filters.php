@@ -32,7 +32,7 @@
         <div class="dropdown features">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" data-default-text="all features">
-            All Functionalities
+            All Features
           </button>
           <ul class="dropdown-menu" data-simplebar-direction="vertical">
           </ul>

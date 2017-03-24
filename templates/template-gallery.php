@@ -25,12 +25,12 @@
     // var_dump($query);
 
     if ( $query->have_posts() ) {
-      echo '<ul>';
-        while ( $query->have_posts() ) {
-          $query->the_post();          
-          echo get_the_title().'<br>';
-        }
-      echo '</ul>';
+      // echo '<ul>';
+      //   while ( $query->have_posts() ) {
+      //     $query->the_post();          
+      //     echo get_the_title().'<br>';
+      //   }
+      // echo '</ul>';
       /* Restore original Post Data */
       wp_reset_postdata();
     } else {
@@ -51,7 +51,7 @@
 
   <script class="entry-template" type="text/x-handlebars-template">
   {{#each this}}
-    <figure id="gallery-post-{{id}}" class="gallery-post">
+    <figure id="gallery-post-{{id}}" class="gallery-post {{#each launchBtn}}{{this}} {{/each}}">
       <img class="post-img img-responsive" src="{{image}}" />
       <div class="overlay"></div>
       <figcaption class="gallery-post-content">
@@ -78,7 +78,7 @@
               <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">View Campaign</span>
             </div>
             <div class="cap">
-              <span class="btn-cms btn-green demo-it" data-code="{{demoCode}}">View Demo</span>
+              <span class="btn-cms btn-green demo-it" data-code="{{campaignUrl}}">View Demo</span>
             </div>            
             <div class="cap play">
               <span class="btn-play demo-it" data-code="{{demoCode}}"><span class="dashicons dashicons-controls-play"></span></span>
