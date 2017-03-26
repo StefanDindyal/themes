@@ -608,6 +608,7 @@ Author: Stefan Dindyal
 	color: #262626;
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	cursor: pointer;
 }
 #frameDemo {
 	position: fixed;
@@ -661,7 +662,8 @@ Author: Stefan Dindyal
 	display: inline-block;
 	margin: 0 5px;
 	vertical-align: middle;
-	font-weight: 400;	
+	font-weight: 400;
+	background-color: #fff;
 }
 .gallery-post .work-actions .cap {
 	width: 100%;
@@ -714,7 +716,6 @@ Author: Stefan Dindyal
 }
 .gallery-contents.listed .inner .act.work-actions {
 	width: 10%;
-	/*height: 100%;*/
 	padding: 16px 0;
 	text-align: center;	
 }
@@ -744,7 +745,7 @@ Author: Stefan Dindyal
 }
 @media screen and (min-width: 1025px){
 	.gallery-contents .gallery-post.desktop .demo-it {
-		display: inline-block;
+		/*display: inline-block;*/
 	}
 }
 @media screen and (max-width: 1024px){

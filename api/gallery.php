@@ -34,15 +34,7 @@ class Gallery {
         "compare"    => "="
       );
       array_push($metaQuery, $formatFilter);
-    }
-    if (!empty($favorite)) {
-      $formatFilter = array(
-        "key" => "top_campaign",
-        "value"    => serialize(array($favorite)),
-        "compare"    => "="
-      );
-      array_push($metaQuery, $formatFilter);
-    }
+    }    
     if (!empty($vertical)) {
       $verticalFilter = array(
         "taxonomy" => "vertical",
@@ -74,14 +66,26 @@ class Gallery {
       array_push($metaQuery, $deviceMeta);
     }
 
-    $args = array(
-      "post_type" => "campaign",
-      "tax_query" => $taxQuery,
-      "meta_query" => $metaQuery,
-      "posts_per_page" => $ITEMS_PER_PAGE,
-      "paged" => $page
-    );
-
+    if (!empty($favorite)) {
+      $args = array(
+        'post_type' => 'campaign',
+        'meta_query' => array(
+          array(
+            'key' => 'top_campaign'
+          )
+        ),      
+        'posts_per_page' => -1
+      );
+    } else {
+      $args = array(
+        "post_type" => "campaign",
+        "tax_query" => $taxQuery,
+        "meta_query" => $metaQuery,
+        "posts_per_page" => $ITEMS_PER_PAGE,
+        "paged" => $page
+      );
+    }
+    
     $query = new \WP_Query($args);
 
     while ( $query->have_posts() ) {

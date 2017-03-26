@@ -1616,7 +1616,11 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 element: p[0],
                 offset: "bottom-in-view",
                 handler: function(a) {
-                    "down" === a && (p.addClass("loading"), k(s, 0))
+                    if($('.favorite').hasClass('faved')){
+
+                    } else {
+                        "down" === a && (p.addClass("loading"), k(s, 0))
+                    }                    
                 }
             }))
         }
@@ -1641,12 +1645,14 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
 
         function e(a) {
             var b = o.find(".reset");
-            if (o.find(".dropdown-menu a").bind("click", g), b.unbind("click"), b.bind("click", h), a && !u) {
+            var fav = o.find(".favorite");
+            if (o.find(".dropdown-menu a").bind("click", g), fav.bind('click', h), b.unbind("click"), b.bind("click", h), a && !u) {
                 var c = app.lib.util.getUrlParameter("form"),
                     d = app.lib.util.getUrlParameter("vertical"),
                     e = app.lib.util.getUrlParameter("feature"),
-                    f = app.lib.util.getUrlParameter("device");
-                j(1, c), j(2, d), j(3, e), j(4, f), u = !0
+                    f = app.lib.util.getUrlParameter("device"),
+                    fav = app.lib.util.getUrlParameter("favorite");;
+                j(1, c), j(2, d), j(3, e), j(4, f), j(5, fav), u = !0
             }
         }
 
@@ -1666,25 +1672,43 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             })
         }
 
-        function g(a) {
-            var b = $(this),
+        function g(a) {            
+            if($(this).hasClass('favorite')){
+                var b = $(this),
                 c = b.closest(".dropdown").first(),
                 d = c.find(".dropdown-toggle"),
                 e = b.data("id"),
                 f = b.text();
-            d.text(f), c.data("selected", e), k(1, 0), a.preventDefault()
+                $(this).addClass('faved');
+                k(1, 0, b), a.preventDefault()
+            } else {
+                var b = $(this),
+                c = b.closest(".dropdown").first(),
+                d = c.find(".dropdown-toggle"),
+                e = b.data("id"),
+                f = b.text();
+                $('.favorite').removeClass('faved');
+                d.text(f), c.data("selected", e), k(1, 0), a.preventDefault()
+            }            
         }
 
         function h() {
+            if($(this).hasClass('favorite')){
+                $(this).addClass('faved');
+            } else {
+                $('.favorite').removeClass('faved');
+            }
+            var me = $(this);
             var a = o.find(".dropdown");
             a.each(function() {
                 var a = $(this),
                     b = a.find(".dropdown-toggle");
                 a.data("selected", ""), b.text(b.data("default-text"))
-            }), window.history.replaceState(null, null, window.location.pathname), k(1, 0)
+            }), window.history.replaceState(null, null, window.location.pathname), k(1, 0, me)
         }
 
         function i(a) {
+            // add click to campaign box
             a.click(function(b) {
                 b.preventDefault();
                 var c = a.find(".btn-cms.btn-green").attr("href");
@@ -1705,18 +1729,36 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                     c = $(".dropdown.features [data-id='" + b + "']");
                     break;
                 case 4:
-                    c = $(".dropdown.devices [data-id='" + b + "']")
+                    c = $(".dropdown.devices [data-id='" + b + "']");
+                    break;
+                case 5:
+                    c = $(".favorite");
             }
             c.length > 0 && (d = c.closest(".dropdown").first(), e = d.find(".dropdown-toggle"), e.text(c.text()), d.data("selected", c.data("id")))
         }
 
-        function k(a, c) {
+        function k(a, c, el) {
             t = !0, a = a ? a : 1;
             var d = "",
                 e = "",
                 g = "",
-                h = "";
-            c && (d = app.lib.util.getUrlParameter("form"), e = app.lib.util.getUrlParameter("vertical"), g = app.lib.util.getUrlParameter("feature"), h = app.lib.util.getUrlParameter("device")), ("" === d || null === d || void 0 === d) && (d = o.find(".dropdown.formats").data("selected")), ("" === e || null === e || void 0 === e) && (e = o.find(".dropdown.verticals").data("selected")), ("" === g || null === g || void 0 === g) && (g = o.find(".dropdown.features").data("selected")), ("" === h || null === h || void 0 === h) && (h = o.find(".dropdown.devices").data("selected"));
+                h = "",
+                fav = "";
+                el = el;
+            c && (
+                fav = app.lib.util.getUrlParameter("favorite"), 
+                d = app.lib.util.getUrlParameter("form"), 
+                e = app.lib.util.getUrlParameter("vertical"), 
+                g = app.lib.util.getUrlParameter("feature"), 
+                h = app.lib.util.getUrlParameter("device"));
+                if(el && el.hasClass('favorite')){
+                    ("" === fav || null === fav || void 0 === fav) && (fav = true);
+                }
+                ("" === d || null === d || void 0 === d) && (d = o.find(".dropdown.formats").data("selected")), 
+                ("" === e || null === e || void 0 === e) && (e = o.find(".dropdown.verticals").data("selected")), 
+                ("" === g || null === g || void 0 === g) && (g = o.find(".dropdown.features").data("selected")), 
+                ("" === h || null === h || void 0 === h) && (h = o.find(".dropdown.devices").data("selected")),
+                ("" === h || null === h || void 0 === h) && (h = o.find(".dropdown.devices").data("selected"));
             var i = n.find(".gallery-contents"),
                 j = i.find(".gallery-contents-inner"),
                 k = n.find(".no-results");
@@ -1727,13 +1769,13 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 vertical: e,
                 feature: g,
                 device: h,
-                page: a
+                page: a,
+                favorite: fav
             }, function(c) {            	
                 f(c.filters), i.removeClass("loading"), p.removeClass("loading"), o.removeClass("loading");
                 var d = n.find(".entry-template").html(),
                     e = Handlebars.compile(d),
                     g = e(c.results);
-                    console.log(c.results);
                 m(), 1 === a ? j.html(g).promise().done(function() {
                     l(c.results, a), s = c.results.length > 0 ? 2 : 1, b()
                 }) : j.append(g).promise().done(function() {
@@ -1752,7 +1794,8 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 b = o.find(".dropdown.formats").data("selected"),
                 c = o.find(".dropdown.verticals").data("selected"),
                 d = o.find(".dropdown.features").data("selected"),
-                e = o.find(".dropdown.devices").data("selected");
+                e = o.find(".dropdown.devices").data("selected"),
+                fav = o.find(".favorite").data("selected");
             "" !== b && null !== b && void 0 !== b && (a += "form=" + b + "&"), "" !== c && null !== c && void 0 !== c && (a += "vertical=" + c + "&"), "" !== d && null !== d && void 0 !== d && (a += "feature=" + d + "&"), "" !== e && null !== e && void 0 !== e && (a += "device=" + e + "&"), "" !== a && (a = window.location.pathname + "?" + a, window.history.replaceState(null, null, a))
         }
         var n, o, p, q, r = ".gallery-post",

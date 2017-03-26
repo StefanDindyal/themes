@@ -3,7 +3,7 @@
 	var gallery = $('.gallery-contents');
 	var isGallery = gallery.length;
 
-	if(isGallery){
+	if(isGallery){		
 
 		$('.ico.tile').on('click', function(){
 			gallery.removeClass('listed');
@@ -28,17 +28,21 @@
 			return l;
 		};
 
-		$(document).on('click', '.info-it', function(e){	
+		$(document).on('click', '.info-it', function(e){
 			var it = $(this);
 			var href = it.attr('data-perm');
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
 			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0"/>';
-			clearDown();
-			$('body').append(frame);
-			$('body').append('<div id="demoOverlay"></div>');
-			$('body').append('<div id="closegal">Back</div>');
-			// window.history.pushState({a: state}, '', path);
+			if($(window).width() < 1024){				
+				clearDown();
+				$('body').append(frame);
+				$('body').append('<div id="demoOverlay"></div>');
+				$('body').append('<div id="closegal">Back</div>');
+				// window.history.pushState({a: state}, '', path);
+			} else {
+				location.href = href;
+			}
 		});
 
 		$(document).on('click', '.demo-it', function(e){
@@ -70,7 +74,7 @@
 			$('#demoOverlay').remove();
 			$('body > div').each(function(){
 				var me = $(this);
-				if(me.is('[id="sky"]')){
+				if(me.is('[id="sky"]') || me.is('[id="wpadminbar"]')){
 					
 				} else {
 					me.remove();

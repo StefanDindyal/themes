@@ -63,13 +63,13 @@
           </div>
           <div class="act work-types">
             {{#if typeAudio}}
-              <div class="type ico audio" title="Audio"><span class="dashicons dashicons-format-audio"></span></div>
+              <div class="type ico audio" title="Audio"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_1.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-format-audio"></span> --></div>
             {{/if}}
             {{#if typePhoto}}
-              <div class="type ico photo" title="Photo"><span class="dashicons dashicons-camera"></span></div>
+              <div class="type ico photo" title="Photo"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_2.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-camera"></span> --></div>
             {{/if}}
             {{#if typeVideo}}
-              <div class="type ico video" title="Video"><span class="dashicons dashicons-video-alt2"></span></div>
+              <div class="type ico video" title="Video"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_3.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-video-alt2"></span> --></div>
             {{/if}}
           </div>
           <div class="act liner"></div>
