@@ -642,6 +642,9 @@ Author: Stefan Dindyal
 	display: inline-block;
 	margin: 0 10px;
 }
+.filter-view .ico.active {
+	color: #82be00;
+}
 .gallery-contents .inner {
 	font-size: 0;
 }

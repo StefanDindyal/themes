@@ -33,7 +33,7 @@
 			var href = it.attr('data-perm');
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
-			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0"/>';
+			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0" scrolling="yes"/>';
 			if($(window).width() < 1024){				
 				clearDown();
 				$('body').append(frame);
@@ -50,12 +50,21 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';
-			var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0"/>';
+			var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/>';
 			clearDown();
 			$('body').append(frame);
 			$('body').append('<div id="demoOverlay"></div>');
 			$('body').append('<div id="closegal">Close Demo</div>');
 			// window.history.pushState({a: state}, '', '#demo');
+		});
+
+		$(document).on('click', '.filter-view .ico', function(e){
+			$('.filter-view .ico').removeClass('active');
+			$(this).addClass('active');		
+		});
+
+		$(document).on('click', '.filter-view .reset', function(e){
+			$('.filter-view .ico').removeClass('active');
 		});
 
 		$(document).on('click', '#closegal', function(e){
