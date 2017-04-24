@@ -89,6 +89,7 @@
 					me.remove();
 				}
 			});
+			$('body').attr('style', '');
 		}
 
 		var path = location.pathname;		

@@ -663,10 +663,9 @@ Author: Stefan Dindyal
 .gallery-post .work-types .type {
 	font-size: 14px;
 	display: inline-block;
-	margin: 0 5px;
+	margin: 0 0px;
 	vertical-align: middle;
 	font-weight: 400;
-	background-color: #fff;
 }
 .gallery-post .work-actions .cap {
 	width: 100%;
@@ -696,7 +695,7 @@ Author: Stefan Dindyal
 	padding: 10px 0;
 }
 .gallery-contents.listed .inner .act.work-title {
-	width: 60%;
+	width: 50%;
 	text-align: left;
 	padding-left: 10px;
 }
@@ -710,7 +709,7 @@ Author: Stefan Dindyal
 	line-height: normal;
 }
 .gallery-contents.listed .inner .act.work-types {
-	width: 29%;
+	width: 39%;
 	text-align: right;	
 	padding-right: 10px;
 }

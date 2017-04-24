@@ -107,12 +107,27 @@ class Gallery {
       $use_image_tittle =  get_field("use_image_tittle") ?  "visibleTittle": "hidenTittle" ;
       $hide_tittle =  get_field("use_image_tittle") ?  "hidenTittle": "visibleTittle" ;
 
+      // $feats = get_terms( array(
+      //   'taxonomy' => 'feature',
+      //   'hide_empty' => true,
+      // ) );
+      // $feats_ar = array();
+      // foreach ($feats as $feat) {
+      //   $feats_ar[] = $feat->slug;
+      // }
+      
+      $feats = get_field("features");
+      $feats_ar = array();
+      foreach($feats as $feat){
+        $term = get_term_by( 'id', $feat, 'feature' );
+        $feats_ar[] = $term->slug;
+      }
       $campaignUrl = get_field("campaign_url");
       $demoCode = get_field("demo_code");
-      $contentType = get_field("content_type");
-      $typeAudio = in_array('audio', $contentType);
-      $typePhoto = in_array('photo', $contentType);      
-      $typeVideo = in_array('video', $contentType);
+      // $contentType = get_field("content_type");
+      // $typeAudio = in_array('audio', $contentType);
+      // $typePhoto = in_array('photo', $contentType);      
+      // $typeVideo = in_array('video', $contentType);
       $launchBtn = get_field("show_launch_campaign");
 
       $entry["id"] = get_the_ID();
@@ -127,12 +142,13 @@ class Gallery {
       $entry["textColor"] = $textColor;
       $entry["buttonPrimaryColor"] = $buttonPrimaryColor;
       $entry["buttonSecondaryColor"] = $buttonSecondaryColor;
-      $entry["typeAudio"] = $typeAudio;
-      $entry["typePhoto"] = $typePhoto;
-      $entry["typeVideo"] = $typeVideo;
+      // $entry["typeAudio"] = $typeAudio;
+      // $entry["typePhoto"] = $typePhoto;
+      // $entry["typeVideo"] = $typeVideo;
       $entry["campaignUrl"] = $campaignUrl;
       $entry["demoCode"] = $demoCode;
       $entry["launchBtn"] = $launchBtn;
+      $entry["feats"] = $feats_ar;
       array_push($results, $entry);
     }
     $filters = self::getFilters($format, $device, $args);

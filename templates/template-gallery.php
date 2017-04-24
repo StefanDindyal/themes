@@ -57,20 +57,14 @@
       <figcaption class="gallery-post-content">
         <div class="inner">
           <div class="act work-title">
-            <h1 class="{{hideTittle}} info-it" data-perm="{{permalink}}">{{title}}</h1>
+            <h1 class="{{hideTittle}} info-it" data-perm="{{permalink}}">{{{title}}}</h1>
             <div class="{{showTittleImg}} image-tittle"  style="background-image: url('{{titleImage}}')"></div>
             <div class="product info-it" data-perm="{{permalink}}">{{format}}</div>
           </div>
           <div class="act work-types">
-            {{#if typeAudio}}
-              <div class="type ico audio" title="Audio"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_1.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-format-audio"></span> --></div>
-            {{/if}}
-            {{#if typePhoto}}
-              <div class="type ico photo" title="Photo"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_2.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-camera"></span> --></div>
-            {{/if}}
-            {{#if typeVideo}}
-              <div class="type ico video" title="Video"><img src="<?php bloginfo('template_directory'); ?>/patch/images/Icon_3.svg" width="30" alt="" border="0"/><!-- <span class="dashicons dashicons-video-alt2"></span> --></div>
-            {{/if}}
+            {{#each feats}}
+              <div class="type ico {{this}}" title="{{this}}"><img src="<?php bloginfo('template_directory'); ?>/patch/images/{{this}}.svg" width="30" alt="" border="0"/></div>
+            {{/each}}            
           </div>
           <div class="act liner"></div>
           <div class="act work-actions">
