@@ -72,8 +72,8 @@
               <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">View Campaign</span>
             </div>
             <div class="cap">
-              {{#if campaignUrl}}
-                <span class="btn-cms btn-green demo-it" data-code="{{campaignUrl}}">View Demo</span>
+              {{#if demoUrl}}
+                <span class="btn-cms btn-green demo-it" data-code="{{demoUrl}}">View Demo</span>
               {{/if}}
             </div>            
             <div class="cap play">

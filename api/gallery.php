@@ -123,6 +123,7 @@ class Gallery {
         $feats_ar[] = $term->slug;
       }
       $campaignUrl = get_field("campaign_url");
+      $demoUrl = get_field("live_demo_url");
       $demoCode = get_field("demo_code");
       // $contentType = get_field("content_type");
       // $typeAudio = in_array('audio', $contentType);
@@ -146,6 +147,7 @@ class Gallery {
       // $entry["typePhoto"] = $typePhoto;
       // $entry["typeVideo"] = $typeVideo;
       $entry["campaignUrl"] = $campaignUrl;
+      $entry["demoUrl"] = $demoUrl;
       $entry["demoCode"] = $demoCode;
       $entry["launchBtn"] = $launchBtn;
       $entry["feats"] = $feats_ar;
