@@ -50,10 +50,24 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';
-			var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/>';
-			clearDown();
-			$('body').append(frame);
-			$('body').append('<div id="demoOverlay"></div>');
+			clearDown();			
+			if(code.indexOf('uploads') !== -1){
+				var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/>';
+				console.log(code);
+				$('body').append(frame);
+				$('body').append('<div id="demoOverlay"></div>');
+			} else {
+				var frame = '<iframe id="frameDemo" class="demoit" frameborder="0" scrolling="yes"/>';
+				var pend = '<style type="text/css">iframe{position: fixed;top: 0;left: 0;width: 100%;height: 100%;}</style><iframe frameborder="0" scrolling="yes" src="'+code+'"></iframe>';
+				console.log('exo');
+				$('body').append(frame);
+				$('#frameDemo').ready(function() {
+			    	$('#frameDemo').contents().find("body").append(pend);
+			    });
+				$('body').append('<div id="demoOverlay" class="opaque"></div>');
+			}			
+			// $('body').append(frame);
+			// $('body').append('<div id="demoOverlay"></div>');
 			$('body').append('<div id="closegal">Close Demo</div>');
 			// window.history.pushState({a: state}, '', '#demo');
 		});
@@ -90,6 +104,7 @@
 				}
 			});
 			$('body').attr('style', '');
+			$('html').attr('style', '');
 		}
 
 		var path = location.pathname;		
