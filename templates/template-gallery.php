@@ -7,38 +7,31 @@
 <div class="gallery-tpl">
   <?php get_template_part("partials/gallery-filters"); ?>
 
-  <div class="data">
   <?php 
+
+    //   $args = array(
+    //     "post_type" => "campaign",
+    //     "tax_query" => $taxQuery,
+    //     "meta_query" => $metaQuery,
+    //     "posts_per_page" => $ITEMS_PER_PAGE,
+    //     "paged" => $page,
+    //     'meta_query' => array(          
+    //       array(
+    //         'key' => 'top_campaign'
+    //         // 'key' => 'exclude_from_gallery',
+    //         // 'value'   => true,
+    //         // 'compare' => 'EXISTS'
+    //       )
+    //     )
+    //   );
     
-    $args = array(
-      'post_type' => 'campaign',
-      'meta_query' => array(
-        array(
-          'key' => 'top_campaign'
-        )
-      ),      
-      'posts_per_page' => -1
-    );
+    // $query = new \WP_Query($args);
 
-    $query = new WP_Query( $args );
-
-    // var_dump($query);
-
-    if ( $query->have_posts() ) {
-      // echo '<ul>';
-      //   while ( $query->have_posts() ) {
-      //     $query->the_post();          
-      //     echo get_the_title().'<br>';
-      //   }
-      // echo '</ul>';
-      /* Restore original Post Data */
-      wp_reset_postdata();
-    } else {
-      // no posts found
-    }
+    // while ( $query->have_posts() ) {
+    //   var_dump(get_the_title());      
+    // }
 
   ?>
-  </div>
 
   <div class="gallery-contents row">
     <div class="gallery-contents-inner"></div>

@@ -34,15 +34,15 @@
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
 			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0" scrolling="yes"/>';
-			if($(window).width() < 1024){				
-				clearDown();
-				$('body').append(frame);
-				$('body').append('<div id="demoOverlay"></div>');
-				$('body').append('<div id="closegal">Back</div>');
-				// window.history.pushState({a: state}, '', path);
-			} else {
-				location.href = href;
-			}
+			// if($(window).width() < 1024){				
+			// 	clearDown();
+			// 	$('body').append(frame);
+			// 	$('body').append('<div id="demoOverlay"></div>');
+			// 	$('body').append('<div id="closegal">Back</div>');				
+			// } else {
+			// 	location.href = href;
+			// }
+			location.href = href;
 		});
 
 		$(document).on('click', '.demo-it', function(e){
@@ -68,7 +68,7 @@
 			}			
 			// $('body').append(frame);
 			// $('body').append('<div id="demoOverlay"></div>');
-			$('body').append('<div id="closegal">Close Demo</div>');
+			$('body').append('<div id="closegal">X</div>');
 			// window.history.pushState({a: state}, '', '#demo');
 		});
 

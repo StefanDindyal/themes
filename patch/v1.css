@@ -601,11 +601,12 @@ Author: Stefan Dindyal
 	position: fixed;
 	z-index: 9999999999;
 	top: 0;
-	left: 0;
-	width: 100%;
-	height: 46px;
-	line-height: 46px;
-	font-size: 24px;
+	left: auto;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
 	font-weight: bold;
 	text-align: center;
 	color: #262626;
@@ -629,8 +630,9 @@ Author: Stefan Dindyal
 }
 .filter-view {
 	padding-top: 12px;
+	display: none;
 }
-.filter-nav .reset:before {
+.filter-view .reset:before {
 	display: none;
 }
 .filter-view .ico {
@@ -644,6 +646,33 @@ Author: Stefan Dindyal
 	margin-top: 12px;
 	display: inline-block;
 	margin: 0 10px;
+}
+.filter-view .ico img {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.filter-view .reset img {
+	width: 20px;
+	height: 20px;
+}
+.filter-view .tile img {
+	width: 20px;
+	height: 20px;
+}
+.filter-view .list {
+	margin: 0;
+}
+.filter-view .list img {
+	width: 40px;
+	height: 40px;
+}
+.filter-view .favorite {
+	margin: 0;
+}
+.filter-view .favorite img {
+	width: 40px;
+	height: 40px;
 }
 .filter-view .ico.active {
 	color: #82be00;
@@ -756,6 +785,12 @@ Author: Stefan Dindyal
 @media screen and (max-width: 1024px){
 	.gallery-contents .gallery-post.tablet .demo-it {
 		display: inline-block;
+	}
+	.filter-nav > .reset {
+		display: none;
+	}
+	.filter-view {
+		display: block;
 	}
 }
 @media screen and (max-width: 736px){

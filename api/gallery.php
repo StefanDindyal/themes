@@ -66,12 +66,27 @@ class Gallery {
       array_push($metaQuery, $deviceMeta);
     }
 
+    array_push($metaQuery, array(
+            'key' => 'exclude_from_gallery',
+            'value' => 1,
+            'compare' => '!='
+          )
+    );
+
     if (!empty($favorite)) {
       $args = array(
         'post_type' => 'campaign',
         'meta_query' => array(
+          "relation" => "AND",
           array(
-            'key' => 'top_campaign'
+            'key' => 'top_campaign',
+            'value' => 1,
+            'compare' => '='
+          ),
+          array(
+            'key' => 'exclude_from_gallery',
+            'value' => 1,
+            'compare' => '!='
           )
         ),      
         'posts_per_page' => -1
@@ -83,7 +98,7 @@ class Gallery {
         "meta_query" => $metaQuery,
         "posts_per_page" => $ITEMS_PER_PAGE,
         "paged" => $page
-      );
+      );      
     }
     
     $query = new \WP_Query($args);
@@ -238,7 +253,7 @@ class Gallery {
     );
     $args = array(
       "post_type" => "format",
-      "status" => "publish",
+      "post_status" => "publish",
       "paged" => 1,
       "posts_per_page" => -1
     );
