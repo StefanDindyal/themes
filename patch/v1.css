@@ -603,9 +603,9 @@ Author: Stefan Dindyal
 	top: 0;
 	left: auto;
 	right: 0;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
 	font-size: 18px;
 	font-weight: bold;
 	text-align: center;
@@ -615,18 +615,26 @@ Author: Stefan Dindyal
 	cursor: pointer;
 }
 #frameDemo {
-	position: fixed;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 9999;
 	background: transparent;
 }
 #frameDemo.infoit {
 	width: 100%;
 	height: 100%;
 	background: #fff;
+}
+#overAll {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-top: 40px;
+	z-index: 9999;
 }
 .filter-view {
 	padding-top: 12px;

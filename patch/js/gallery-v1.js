@@ -33,7 +33,7 @@
 			var href = it.attr('data-perm');
 			var path = getLocation(href).pathname;
 			var state = path.split('/').pop();
-			var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0" scrolling="yes"/>';
+			// var frame = '<iframe id="frameDemo" class="infoit" src="'+href+'" frameborder="0" scrolling="yes"/>';
 			// if($(window).width() < 1024){				
 			// 	clearDown();
 			// 	$('body').append(frame);
@@ -52,12 +52,12 @@
 			var state = 'demo';
 			clearDown();			
 			if(code.indexOf('uploads') !== -1){
-				var frame = '<iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/>';
+				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/></div>';
 				console.log(code);
 				$('body').append(frame);
 				$('body').append('<div id="demoOverlay"></div>');
 			} else {
-				var frame = '<iframe id="frameDemo" class="demoit" frameborder="0" scrolling="yes"/>';
+				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0" scrolling="yes"/></div>';
 				var pend = '<style type="text/css">iframe{position: fixed;top: 0;left: 0;width: 100%;height: 100%;}</style><iframe frameborder="0" scrolling="yes" src="'+code+'"></iframe>';
 				console.log('exo');
 				$('body').append(frame);
@@ -68,7 +68,7 @@
 			}			
 			// $('body').append(frame);
 			// $('body').append('<div id="demoOverlay"></div>');
-			$('body').append('<div id="closegal">X</div>');
+			$('body').append('<div id="closegal">close X</div>');
 			// window.history.pushState({a: state}, '', '#demo');
 		});
 
@@ -93,7 +93,7 @@
 
 		function clearDown(){
 			$('#closegal').remove();
-			$('#frameDemo').remove();
+			$('#overAll').remove();
 			$('#demoOverlay').remove();
 			$('body > div').each(function(){
 				var me = $(this);
