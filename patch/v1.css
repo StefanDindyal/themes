@@ -614,27 +614,26 @@ Author: Stefan Dindyal
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	cursor: pointer;
 }
-#frameDemo {
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: transparent;
-}
-#frameDemo.infoit {
-	width: 100%;
-	height: 100%;
-	background: #fff;
-}
 #overAll {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding-top: 40px;
+	padding-top: 40px;	
 	z-index: 9999;
+	display: block;
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+}
+#frameDemo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+}
+#frameDemo.infoit {
+	background: #fff;
 }
 .filter-view {
 	padding-top: 12px;
@@ -655,35 +654,44 @@ Author: Stefan Dindyal
 	display: inline-block;
 	margin: 0 10px;
 }
-.filter-view .ico img {
+.filter-view .ico img,
+.filter-view .ico svg {
 	display: block;
 	margin: 0;
 	padding: 0;
 }
-.filter-view .reset img {
+.filter-view .reset img,
+.filter-view .reset svg {
 	width: 20px;
 	height: 20px;
 }
-.filter-view .tile img {
+.filter-view .tile img,
+.filter-view .tile svg {
 	width: 20px;
 	height: 20px;
 }
 .filter-view .list {
 	margin: 0;
 }
-.filter-view .list img {
+.filter-view .list img,
+.filter-view .list svg {
 	width: 40px;
 	height: 40px;
 }
 .filter-view .favorite {
 	margin: 0;
 }
-.filter-view .favorite img {
+.filter-view .favorite img,
+.filter-view .favorite svg {
 	width: 40px;
 	height: 40px;
 }
 .filter-view .ico.active {
 	color: #82be00;
+}
+.filter-view .ico.active svg path,
+.filter-view .ico.active svg rect {
+	fill: #82be00;
 }
 .gallery-contents .inner {
 	font-size: 0;
@@ -706,6 +714,9 @@ Author: Stefan Dindyal
 	margin: 0 0px;
 	vertical-align: middle;
 	font-weight: 400;
+}
+.gallery-post .work-types .type.carousel {
+	background-color: transparent;
 }
 .gallery-post .work-actions .cap {
 	width: 100%;

@@ -60,19 +60,23 @@
     <div class="filter-view">
       <span class="ico reset">
         <!-- <span class="dashicons dashicons-image-rotate"></span> -->
-        <img src="<?php bloginfo('template_directory'); ?>/patch/images/reset.svg" alt="" border="0">
+        <?php echo file_get_contents(get_template_directory_uri() . '/patch/images/reset.svg'); ?>
+        <!-- <img src="<?php bloginfo('template_directory'); ?>/patch/images/reset.svg" alt="" border="0"> -->
       </span>
       <span class="ico tile">
         <!-- <span class="dashicons dashicons-grid-view"></span> -->
-        <img src="<?php bloginfo('template_directory'); ?>/patch/images/grid.svg" alt="" border="0">
+        <?php echo file_get_contents(get_template_directory_uri() . '/patch/images/grid.svg'); ?>
+        <!-- <img src="<?php bloginfo('template_directory'); ?>/patch/images/grid.svg" alt="" border="0"> -->
       </span>
       <span class="ico list">
         <!-- <span class="dashicons dashicons-list-view"></span> -->
-        <img src="<?php bloginfo('template_directory'); ?>/patch/images/list.svg" alt="" border="0">
+        <?php echo file_get_contents(get_template_directory_uri() . '/patch/images/list.svg'); ?>
+        <!-- <img src="<?php bloginfo('template_directory'); ?>/patch/images/list.svg" alt="" border="0"> -->
       </span>
       <span class="ico favorite">
         <!-- <span class="dashicons dashicons-star-filled"></span> -->
-        <img src="<?php bloginfo('template_directory'); ?>/patch/images/featured.svg" alt="" border="0">
+        <?php echo file_get_contents(get_template_directory_uri() . '/patch/images/featured.svg'); ?>
+        <!-- <img src="<?php bloginfo('template_directory'); ?>/patch/images/featured.svg" alt="" border="0"> -->
       </span>      
     </div>    
     <!-- Filter View END -->

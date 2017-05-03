@@ -7,32 +7,6 @@
 <div class="gallery-tpl">
   <?php get_template_part("partials/gallery-filters"); ?>
 
-  <?php 
-
-    //   $args = array(
-    //     "post_type" => "campaign",
-    //     "tax_query" => $taxQuery,
-    //     "meta_query" => $metaQuery,
-    //     "posts_per_page" => $ITEMS_PER_PAGE,
-    //     "paged" => $page,
-    //     'meta_query' => array(          
-    //       array(
-    //         'key' => 'top_campaign'
-    //         // 'key' => 'exclude_from_gallery',
-    //         // 'value'   => true,
-    //         // 'compare' => 'EXISTS'
-    //       )
-    //     )
-    //   );
-    
-    // $query = new \WP_Query($args);
-
-    // while ( $query->have_posts() ) {
-    //   var_dump(get_the_title());      
-    // }
-
-  ?>
-
   <div class="gallery-contents row">
     <div class="gallery-contents-inner"></div>
     <?php render_component("loader", array("size" => "big")); ?>
@@ -70,7 +44,9 @@
               {{/if}}
             </div>            
             <div class="cap play">
-              <span class="btn-play demo-it" data-code="{{demoCode}}"><span class="dashicons dashicons-controls-play"></span></span>
+              {{#if demoUrl}}
+                <span class="btn-play demo-it" data-code="{{demoUrl}}"><span class="dashicons dashicons-controls-play"></span></span>
+              {{/if}}
             </div>
           </div>
         </div>

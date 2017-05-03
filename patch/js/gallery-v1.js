@@ -52,23 +52,25 @@
 			var state = 'demo';
 			clearDown();			
 			if(code.indexOf('uploads') !== -1){
-				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" src="'+code+'" frameborder="0" scrolling="yes"/></div>';
-				console.log(code);
+				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0"/></div>';
+				var pend = '<style type="text/css">iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes"/>';
 				$('body').append(frame);
+				$('#frameDemo').ready(function() {
+			    	$('#frameDemo').contents().find("body").append(pend);
+			    });
 				$('body').append('<div id="demoOverlay"></div>');
 			} else {
-				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0" scrolling="yes"/></div>';
-				var pend = '<style type="text/css">iframe{position: fixed;top: 0;left: 0;width: 100%;height: 100%;}</style><iframe frameborder="0" scrolling="yes" src="'+code+'"></iframe>';
-				console.log('exo');
+				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0"/></div>';
+				var pend = '<style type="text/css">iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes"/>';
 				$('body').append(frame);
 				$('#frameDemo').ready(function() {
 			    	$('#frameDemo').contents().find("body").append(pend);
 			    });
 				$('body').append('<div id="demoOverlay" class="opaque"></div>');
-			}			
+			}
+			$('body').append('<div id="closegal">close X</div>');			
 			// $('body').append(frame);
-			// $('body').append('<div id="demoOverlay"></div>');
-			$('body').append('<div id="closegal">close X</div>');
+			// $('body').append('<div id="demoOverlay"></div>');			
 			// window.history.pushState({a: state}, '', '#demo');
 		});
 
