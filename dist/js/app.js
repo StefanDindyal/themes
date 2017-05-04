@@ -1771,7 +1771,7 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 device: h,
                 page: a,
                 favorite: fav
-            }, function(c) {            	
+            }, function(c) {                
                 f(c.filters), i.removeClass("loading"), p.removeClass("loading"), o.removeClass("loading");
                 var d = n.find(".entry-template").html(),
                     e = Handlebars.compile(d),
@@ -1797,6 +1797,7 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 e = o.find(".dropdown.devices").data("selected"),
                 fav = o.find(".favorite").data("selected");
             "" !== b && null !== b && void 0 !== b && (a += "form=" + b + "&"), "" !== c && null !== c && void 0 !== c && (a += "vertical=" + c + "&"), "" !== d && null !== d && void 0 !== d && (a += "feature=" + d + "&"), "" !== e && null !== e && void 0 !== e && (a += "device=" + e + "&"), "" !== a && (a = window.location.pathname + "?" + a, window.history.replaceState(null, null, a))
+            console.log('a: '+a);
         }
         var n, o, p, q, r = ".gallery-post",
             s = 1,

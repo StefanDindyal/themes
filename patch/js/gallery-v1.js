@@ -68,10 +68,7 @@
 			    });
 				$('body').append('<div id="demoOverlay" class="opaque"></div>');
 			}
-			$('body').append('<div id="closegal">close X</div>');			
-			// $('body').append(frame);
-			// $('body').append('<div id="demoOverlay"></div>');			
-			// window.history.pushState({a: state}, '', '#demo');
+			$('body').append('<div id="closegal">close X</div>');
 		});
 
 		$(document).on('click', '.filter-view .ico', function(e){
@@ -108,10 +105,6 @@
 			$('body').attr('style', '');
 			$('html').attr('style', '');
 		}
-
-		var path = location.pathname;		
-		var state = path.split('/').pop();
-		window.history.replaceState({a: 'gallery'}, '', path);
 
 		// window.history.pushState("object or string", "Title", "/new-url");
 
