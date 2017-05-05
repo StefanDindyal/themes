@@ -53,7 +53,14 @@
 			clearDown();			
 			if(code.indexOf('uploads') !== -1){
 				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0"/></div>';
-				var pend = '<style type="text/css">iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes"/>';
+				var codeLower = code.toLowerCase(), mod = 'allow-same-origin allow-scripts';
+				if(codeLower.includes('tchibo')){
+					// mod = 'allow-scripts';
+				}
+				if(codeLower.includes('verizon')){
+					// mod = 'allow-scripts';
+				}
+				var pend = '<style type="text/css">body{margin:0;}body>div{top: 0!important;}iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes" sandbox="'+mod+'"/>';
 				$('body').append(frame);
 				$('#frameDemo').ready(function() {
 			    	$('#frameDemo').contents().find("body").append(pend);
@@ -61,7 +68,7 @@
 				$('body').append('<div id="demoOverlay"></div>');
 			} else {
 				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0"/></div>';
-				var pend = '<style type="text/css">iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes"/>';
+				var pend = '<style type="text/css">body{margin:0;}body>div{top: 0!important;}iframe{display:block;width:100%;height:100%;}</style><iframe src="'+code+'" frameborder="0" scrolling="yes" sandbox="allow-same-origin allow-scripts"/>';
 				$('body').append(frame);
 				$('#frameDemo').ready(function() {
 			    	$('#frameDemo').contents().find("body").append(pend);
@@ -104,10 +111,10 @@
 			});
 			$('body').attr('style', '');
 			$('html').attr('style', '');
-		}
+		}		
 
 		// window.history.pushState("object or string", "Title", "/new-url");
 
 	}
 
-})(jQuery);
+})($);

@@ -1778,8 +1778,74 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                     g = e(c.results);
                 m(), 1 === a ? j.html(g).promise().done(function() {
                     l(c.results, a), s = c.results.length > 0 ? 2 : 1, b()
+                    // $('img.svg').each(function(){
+                    //     var $img = $(this);
+                    //     var imgID = $img.attr('id');
+                    //     var imgClass = $img.attr('class');
+                    //     var imgURL = $img.attr('src');
+
+                    //     $.get(imgURL, function(data) {
+                    //         // Get the SVG tag, ignore the rest
+                    //         var $svg = $(data).find('svg');
+
+                    //         // Add replaced image's ID to the new SVG
+                    //         if(typeof imgID !== 'undefined') {
+                    //             $svg = $svg.attr('id', imgID);
+                    //         }
+                    //         // Add replaced image's classes to the new SVG
+                    //         if(typeof imgClass !== 'undefined') {
+                    //             $svg = $svg.attr('class', imgClass+' replaced-svg');
+                    //         }
+
+                    //         // Remove any invalid XML tags as per http://validator.w3.org
+                    //         $svg = $svg.removeAttr('xmlns:a');
+
+                    //         // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+                    //         if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                    //             $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                    //         }
+
+                    //         // Replace image with new SVG
+                    //         $img.replaceWith($svg);
+
+                    //     }, 'xml');
+
+                    // });
                 }) : j.append(g).promise().done(function() {
                     l(c.results, a), c.results.length > 0 && s++
+                    // $('img.svg').each(function(){
+                    //     var $img = $(this);
+                    //     var imgID = $img.attr('id');
+                    //     var imgClass = $img.attr('class');
+                    //     var imgURL = $img.attr('src');
+
+                    //     $.get(imgURL, function(data) {
+                    //         // Get the SVG tag, ignore the rest
+                    //         var $svg = $(data).find('svg');
+
+                    //         // Add replaced image's ID to the new SVG
+                    //         if(typeof imgID !== 'undefined') {
+                    //             $svg = $svg.attr('id', imgID);
+                    //         }
+                    //         // Add replaced image's classes to the new SVG
+                    //         if(typeof imgClass !== 'undefined') {
+                    //             $svg = $svg.attr('class', imgClass+' replaced-svg');
+                    //         }
+
+                    //         // Remove any invalid XML tags as per http://validator.w3.org
+                    //         $svg = $svg.removeAttr('xmlns:a');
+
+                    //         // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+                    //         if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                    //             $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                    //         }
+
+                    //         // Replace image with new SVG
+                    //         $img.replaceWith($svg);
+
+                    //     }, 'xml');
+
+                    // });
                 })
             })
         }
@@ -1797,7 +1863,6 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 e = o.find(".dropdown.devices").data("selected"),
                 fav = o.find(".favorite").data("selected");
             "" !== b && null !== b && void 0 !== b && (a += "form=" + b + "&"), "" !== c && null !== c && void 0 !== c && (a += "vertical=" + c + "&"), "" !== d && null !== d && void 0 !== d && (a += "feature=" + d + "&"), "" !== e && null !== e && void 0 !== e && (a += "device=" + e + "&"), "" !== a && (a = window.location.pathname + "?" + a, window.history.replaceState(null, null, a))
-            console.log('a: '+a);
         }
         var n, o, p, q, r = ".gallery-post",
             s = 1,

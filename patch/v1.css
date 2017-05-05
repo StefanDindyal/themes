@@ -718,6 +718,28 @@ Author: Stefan Dindyal
 .gallery-post .work-types .type.carousel {
 	background-color: transparent;
 }
+.gallery-post .work-types .type svg {
+	width: 40px;
+	height: 40px;
+}
+.gallery-post .work-types .type path,
+.gallery-post .work-types .type rect,
+.gallery-post .work-types .type polygon,
+.gallery-post .work-types .type circle {
+	fill: #fff;
+}
+.gallery-post .work-types .type.carousel rect {
+	fill: transparent;
+}
+.gallery-post .work-types .type.hotspot svg,
+.gallery-post .work-types .type.hotspot img {
+	width: 20px;
+	height: 20px;
+}
+.cpr {
+	width: 30px;
+	height: 30px;
+}
 .gallery-post .work-actions .cap {
 	width: 100%;
 }

@@ -166,6 +166,26 @@ class Gallery {
       $entry["demoCode"] = $demoCode;
       $entry["launchBtn"] = $launchBtn;
       $entry["feats"] = $feats_ar;
+      foreach($feats_ar as $feat){
+        if($feat == 'content-integration'){
+          $entry["content-integration"] = true;
+        }
+        if($feat == 'carousel'){
+          $entry["carousel"] = true;
+        }
+        if($feat == 'configurator'){
+          $entry["configurator"] = true;
+        }
+        if($feat == 'dynamic-content'){
+          $entry["dynamic-content"] = true;
+        }
+        if($feat == 'gamification'){
+          $entry["gamification"] = true;
+        }
+        if($feat == 'hotspot'){
+          $entry["hotspot"] = true;
+        }
+      }
       array_push($results, $entry);
     }
     $filters = self::getFilters($format, $device, $args);
