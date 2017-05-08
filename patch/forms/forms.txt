@@ -1,0 +1,17 @@
+1-11 should use “White Paper Download”.
+12 should use “Publisher Page Form”.
+The screenshot should use “Sign Up for Updates Footer”.
+And “Contact Us Form” should be used for when people to go “Contact Us” on the website.
+ 
+1.       http://undertone.com/research_post/adqualitystudy/ (“Download Full Report” button)
+2.       http://undertone.com/research_post/adqualitystudy/ (“Download Full Report” button)
+3.       http://undertone.com/research_post/highimpactacrossscreenswhitepaper/ (“Download Full Report” button)
+4.       http://undertone.com/research_post/consumer-attention_infographic_2015/ (“Download Full Report” button)
+5.       http://undertone.com/research_post/programmatic-trends-2014/ (“Download Full Report” button)
+6.       http://undertone.com/research_post/rising-stars-whitepaper-2014/ (“Download Full Report” button)
+7.       http://undertone.com/research_post/high-impact-whitepaper/  (“Download Full Report” button)
+8.       http://undertone.com/research_post/rising-stars-whitepaper-2013/ (“Download Full Report” button)
+9.       http://undertone.com/research_post/responsive-design-whitepaper/ (“Download Full Report” button)
+10.   http://undertone.com/research_post/cross-screen-whitepaper/ (“Download Full Report” button)
+11.   http://undertone.com/research_post/video-whitepaper/ (“Download Full Report” button)
+12.   http://undertone.com/publisher-solutions/ (Form at bottom of the page)
