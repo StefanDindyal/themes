@@ -191,5 +191,6 @@ global $sitepress;
 	      target: '.hbspt-form-footer-complete'
 	    });  
 	<?php } ?>
+	
   });
 </script>

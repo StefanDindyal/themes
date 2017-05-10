@@ -50,6 +50,9 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';
+			var kind = it.parents('.gallery-post').find('.product.info-it').text();
+			kind = kind.replace(/\s/g,'').toLowerCase();
+			console.log(kind);
 			clearDown();			
 			if(code.indexOf('uploads') !== -1){
 				var frame = '<div id="overAll"><iframe id="frameDemo" class="demoit" frameborder="0"/></div>';
@@ -75,7 +78,11 @@
 			    });
 				$('body').append('<div id="demoOverlay" class="opaque"></div>');
 			}
-			$('body').append('<div id="closegal">close X</div>');
+			if(kind == 'expandableteaser' || kind == 'expandableadhesion'){
+				$('body').append('<div id="closegal" class="band">close X</div>');
+			} else {
+				$('body').append('<div id="closegal">X</div>');
+			}			
 		});
 
 		$(document).on('click', '.filter-view .ico', function(e){

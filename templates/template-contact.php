@@ -179,28 +179,33 @@ $notSure     = get_field('not_sure');
 </div>
 <script>
 	$(document).ready(function(){
-	<?php  if (ICL_LANGUAGE_CODE == 'de') { ?>
-		app.templates.contact.init('#hsForm_9cf5070a-f31a-4d57-915b-3b3b870a6fb5', "<?php echo ICL_LANGUAGE_CODE; ?>");
-		hbspt.forms.create({
-	      portalId: '388551',
-	      formId: '9cf5070a-f31a-4d57-915b-3b3b870a6fb5',
-	      target: '.hbspt-form-footer-complete'
-	    });
-	<?php }else if(ICL_LANGUAGE_CODE == 'en_uk'){ ?>
-		app.templates.contact.init('#hsForm_cfe5b6da-8dbd-4a52-a3a2-36f8a428571c', "<?php echo ICL_LANGUAGE_CODE; ?>");
-		hbspt.forms.create({
-	      portalId: '388551',
-	      formId: 'cfe5b6da-8dbd-4a52-a3a2-36f8a428571c',
-	      target: '.hbspt-form-footer-complete'
-	    });  
 
-	<?php }else{ ?> //USA FORM
-		app.templates.contact.init('#hsForm_95289d3d-9fd2-41f0-a9f9-5a90917a65ed', "<?php echo ICL_LANGUAGE_CODE; ?>");
-		hbspt.forms.create({ 
-		    portalId: '388551',
-		    formId: '95289d3d-9fd2-41f0-a9f9-5a90917a65ed',
-		    target: '.hbspt-form-contact'
-		}); 
-	<?php } ?>
+		// Custom Contact Code
+
+		
+		<?php if (ICL_LANGUAGE_CODE == 'de') { ?>
+			app.templates.contact.init('#hsForm_9cf5070a-f31a-4d57-915b-3b3b870a6fb5', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			hbspt.forms.create({
+		      portalId: '388551',
+		      formId: '9cf5070a-f31a-4d57-915b-3b3b870a6fb5',
+		      target: '.hbspt-form-footer-complete'
+		    });
+		<?php }else if(ICL_LANGUAGE_CODE == 'en_uk'){ ?>
+			app.templates.contact.init('#hsForm_cfe5b6da-8dbd-4a52-a3a2-36f8a428571c', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			hbspt.forms.create({
+		      portalId: '388551',
+		      formId: 'cfe5b6da-8dbd-4a52-a3a2-36f8a428571c',
+		      target: '.hbspt-form-footer-complete'
+		    });  
+
+		<?php }else{ ?> //USA FORM
+			app.templates.contact.init('#hsForm_95289d3d-9fd2-41f0-a9f9-5a90917a65ed', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			hbspt.forms.create({ 
+			    portalId: '388551',
+			    formId: '95289d3d-9fd2-41f0-a9f9-5a90917a65ed',
+			    target: '.hbspt-form-contact'
+			}); 
+		<?php } ?>
+
 	});
 </script>
