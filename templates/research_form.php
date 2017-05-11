@@ -5,7 +5,8 @@
    */
 ?>
 
-<div class="hbspt-form"></div>
+<!-- <div class="hbspt-form"></div> -->
+
 <!-- Modal -->
 <div id="reportForm" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -17,15 +18,24 @@
       </div>
       <div class="modal-body">
         <h3><?php the_title(); ?></h3>
-        <form action="" class="research-form form-horizontal simple-form">
+        <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" class="research-form form-horizontal simple-form">
+
+          <input type=hidden name="oid" value="00D300000000bzX">
+          <input type=hidden name="retURL" value="http://">
+          <input  id="lead_source" name="lead_source" type="hidden" value="White Paper Download" />
+
+          <!-- Debug -->
+          <input type="hidden" name="debug" value=1>
+          <input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+
           <p class="text-center"><strong>To access the full report, please provide the following info:</strong></p>
           <div class="control-group row">
             <div class="col-xs-5">
               <label class="control-label pull-right" for="firstNameINPUT">First Name*</label>
             </div>
             <div class="col-sm-6 col-xs-7">
-              <div class="controls">
-                <input id="firstNameINPUT" name="firstNameINPUT" type="text" class="form-control" required>
+              <div class="controls">                
+                <input id="firstNameINPUT" name="first_name" type="text" class="form-control" required>
               </div>
             </div>
           </div>
@@ -35,7 +45,7 @@
             </div>
             <div class="col-sm-6 col-xs-7">
               <div class="controls">
-                <input id="lastNameINPUT" name="lastNameINPUT" type="text" class="form-control" required>
+                <input id="lastNameINPUT" name="last_name" type="text" class="form-control" required>
               </div>
             </div>
           </div>
@@ -45,7 +55,7 @@
             </div>
             <div class="col-sm-6 col-xs-7">
               <div class="controls">
-                <input id="emailINPUT" name="emailINPUT" type="email" class="form-control" required>
+                <input id="emailINPUT" name="email" type="email" class="form-control" required>
               </div>
             </div>
           </div>
@@ -55,7 +65,7 @@
             </div>
             <div class="col-sm-6 col-xs-7">
               <div class="controls">
-                <input id="companyINPUT" name="companyINPUT" type="text" class="form-control" required>
+                <input id="companyINPUT" name="company" type="text" class="form-control" required>
               </div>
             </div>
           </div>
@@ -65,7 +75,7 @@
             </div>
             <div class="col-sm-6 col-xs-7">
               <div class="controls">
-                <input id="stateregionINPUT" name="stateregionINPUT" type="text" class="form-control" required>
+                <input id="stateregionINPUT" name="state" type="text" class="form-control" required>
               </div>
             </div>
           </div>
@@ -76,6 +86,16 @@
               </div>
             </div>
           </div>
+          <div class="control-group row check">
+            <div class="col-xs-5">
+              <label class="control-label pull-right question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+            </div>
+            <div class="col-sm-6 col-xs-7">
+              <div class="controls">
+                <input id="answer" name="answer" type="text" class="form-control answer">
+              </div>
+            </div>
+          </div>          
           <p class="agreement">By clicking Submit. I agree to the <a href="<?php echo get_site_url(); ?>/privacy">Privacy Policy</a> and <a href="<?php echo get_site_url(); ?>/terms-conditions">Terms of Use</a>.</p>
           <div class="row modal-footer">
             <div class="col-xs-6">

@@ -128,13 +128,39 @@
 </div>
 <script>
   $(document).ready(function() {
-    app.templates.postSingle.init("<?php echo $postType; ?>","#reportForm", "#hsForm_<?php echo $hubspotCode; ?>");
-    <?php if($postType == 'research_post' && $hubspotCode !== '') { ?>
+
+    // Custom Code
+    var rand = Math.floor(Math.random() * 100) + 1;
+    var form = $('.research-form');
+    form.find('.question span').html(rand);
+    form.on('submit', function(e){
+      var el = $(this);
+      var check = el.find('.check');
+      var q = check.find('.question span');
+      var answer = check.find('.answer');
+      q = (q.text()) * 1;
+      answer = (answer.val()) * 1;
+      if(answer != ''){
+        if(q === answer){
+          return true;        
+        } else {
+          e.preventDefault();
+          alert('Incorrect Answer.');        
+        }
+      } else {
+        e.preventDefault();
+        alert('Please enter an answer.')
+      }
+    });
+
+    // app.templates.postSingle.init("<?php echo $postType; ?>","#reportForm", "#hsForm_<?php echo $hubspotCode; ?>");
+    <?php /*if($postType == 'research_post' && $hubspotCode !== '') { ?>
     hbspt.forms.create({ 
       target: '.hbspt-form',
       portalId: '388551',
       formId: '<?php echo $hubspotCode; ?>'
     });
-    <?php } ?>
+    <?php }*/ ?>
+
   });
 </script>

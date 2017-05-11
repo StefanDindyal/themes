@@ -1446,9 +1446,14 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             var a = [];
             $(".interest.selected").each(function() {
                 a.push($(this).attr("data-theme"))
-            }), O = $(xa + " " + ya), P = $(xa + " " + za), Q = $(xa + " " + Ba), R = $(xa + " " + Aa), S = $(xa + " " + Da), T = $(xa + " " + Ca), U = $(xa + " " + Fa), V = $(xa + " " + Ga), N = $(xa), W = $(xa + " " + Ha), O.val(I.val()), P.val(J.val()), Q.val(G.val()), R.val(H.val()), S.val(F.val()), T.val(E.val()), U.val(K.val()), V.val(r.val()), W.prop("checked", s.prop("checked")), $.each(a, function(a, b) {
-                X = $(xa + " " + Ea + '[value="' + b + '"]'), X.prop("checked", !0)
-            }), N.submit(), m()
+            }), O = $(xa + " " + ya), P = $(xa + " " + za), Q = $(xa + " " + Ba), R = $(xa + " " + Aa), S = $(xa + " " + Da), T = $(xa + " " + Ca), U = $(xa + " " + Fa), V = $(xa + " " + Ga), N = $(xa), O.val(I.val()), console.log(O), P.val(J.val()), Q.val(G.val()), R.val(H.val()), S.val(F.val()), T.val(E.val()), U.val(K.val()), V.val(r.val()), $.each(a, function(a, b) {
+                // X = $(xa + " " + Ea + '[value="' + b + '"]'), X.prop("checked", !0)
+                $('#00N1300000B4uTV option[value="' + b + '"]').attr('selected','selected');
+            }), $('#salesForce-Contact').submit(), m()
+            //W = $(xa + " " + Ha),
+            //W.prop("checked", s.prop("checked")),
+            // N.submit()
+            // $('#salesForce-Contact').submit(),
         }
 
         function o(a) {
@@ -1486,16 +1491,26 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             va = !1,
             wa = 0,
             xa = "",
-            ya = '.hs-input[name="firstname"]',
-            za = '.hs-input[name="lastname"]',
-            Aa = '.hs-input[name="company"]',
-            Ba = '.hs-input[name="jobtitle"]',
-            Ca = '.hs-input[name="email"]',
-            Da = '.hs-input[name="phone"]',
-            Ea = ".hs-input",
-            Fa = '.hs-input[name="i_heard_about_undertone_from"]',
-            Ga = '.hs-input[name="your_message"]',
-            Ha = '.hs-input[name="sign_up_for_our_newsletter"]';
+            // ya = '.hs-input[name="firstname"]',
+            // za = '.hs-input[name="lastname"]',
+            // Aa = '.hs-input[name="company"]',
+            // Ba = '.hs-input[name="jobtitle"]',
+            // Ca = '.hs-input[name="email"]',
+            // Da = '.hs-input[name="phone"]',
+            // Ea = ".hs-input",
+            // Fa = '.hs-input[name="i_heard_about_undertone_from"]',
+            // Ga = '.hs-input[name="your_message"]',
+            // Ha = '.hs-input[name="sign_up_for_our_newsletter"]';
+            ya = '#first_name',
+            za = '#last_name',
+            Aa = '#company',
+            Ba = '#title',
+            Ca = '#email',
+            Da = '#phone',
+            // Ea = '.sfinput',
+            Fa = '#00N1300000B4qA5',
+            Ga = '#00N1300000B4uTa';
+            // Ha = '#salesForce-Contact .sfinput[name="sign_up_for_our_newsletter"]';
         app.templates.contact = {
             init: a
         }

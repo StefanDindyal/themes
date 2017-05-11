@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/dist/img/favicon.png">
   <?php wp_head(); ?>

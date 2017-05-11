@@ -146,12 +146,12 @@ $notSure     = get_field('not_sure');
 								<textarea tabindex="-1" name="message" class="message disabled" rows="5" disabled></textarea>
 								<span class="response-required">*</span>
 							</div>
-		      				<div class="checkbox-container">
+		      				<!-- <div class="checkbox-container">
 								<input type="checkbox" class="newsletter" name="newsletter" disabled> 
 								<p class="legend">Sign-Up for our Updates</p>
-							</div>
+							</div> -->
 					      	<input type="submit" tabindex="-1" class="submit-contact btn btn-gray btn-default disabled" value="Submit">
-						</div>
+						</div>						
 					</div>
 				</form>
 				<div class="hbspt-form-contact"></div>
@@ -177,34 +177,75 @@ $notSure     = get_field('not_sure');
 		</div>
 	</div>
 </div>
+
+<!-- New Form -->
+<div style="display: none;">
+<form id="salesForce-Contact" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<input type=hidden name="oid" value="00D300000000bzX">
+<input type=hidden name="retURL" value="http://">
+<input  id="lead_source" name="lead_source" type="hidden" value="Contact Us Form" />
+
+<!-- Debug -->
+<input type="hidden" name="debug" value=1>
+<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+
+<label for="first_name">First Name</label><input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="sfinput" /><br>
+
+<label for="last_name">Last Name</label><input id="last_name" maxlength="80" name="last_name" size="20" type="text" class="sfinput" /><br>
+
+<label for="title">Title</label><input id="title" maxlength="40" name="title" size="20" type="text" class="sfinput" /><br>
+
+<label for="company">Company</label><input id="company" maxlength="40" name="company" size="20" type="text" class="sfinput" /><br>
+
+<label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" class="sfinput" /><br>
+
+<label for="phone">Phone</label><input id="phone" maxlength="40" name="phone" size="20" type="text" class="sfinput" /><br>
+
+Tell us what you are interested in:<select id="00N1300000B4uTV" multiple="multiple" name="00N1300000B4uTV" title="Tell us what you are interested in" class="sfinput"><option value="Advertising">Advertising</option>
+<option value="Brand Opportunities">Brand Opportunities</option>
+<option value="Publisher Opportunities">Publisher Opportunities</option>
+<option value="Working at Undertone">Working at Undertone</option>
+<option value="Press and Media Questions">Press and Media Questions</option>
+<option value="...I&#39;m not sure">...I&#39;m not sure</option>
+</select><br>
+
+I heard about Undertone from:<input id="00N1300000B4qA5" maxlength="255" name="00N1300000B4qA5" size="20" type="text" class="sfinput" /><br>
+
+Your message:<textarea id="00N1300000B4uTa" name="00N1300000B4uTa" rows="3" type="text" wrap="soft" class="sfinput"></textarea><br>
+
+<input type="submit" name="Send">
+
+</form>
+</div>
+
 <script>
 	$(document).ready(function(){
 
-		// Custom Contact Code
-
+		// Custom Code
+		// $('#00N1300000B4uTV option[value="Brand Opportunities"]').attr('selected','selected');		
 		
 		<?php if (ICL_LANGUAGE_CODE == 'de') { ?>
-			app.templates.contact.init('#hsForm_9cf5070a-f31a-4d57-915b-3b3b870a6fb5', "<?php echo ICL_LANGUAGE_CODE; ?>");
-			hbspt.forms.create({
-		      portalId: '388551',
-		      formId: '9cf5070a-f31a-4d57-915b-3b3b870a6fb5',
-		      target: '.hbspt-form-footer-complete'
-		    });
+			app.templates.contact.init('#salesForce-Contact', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			// hbspt.forms.create({
+		 //      portalId: '388551',
+		 //      formId: '9cf5070a-f31a-4d57-915b-3b3b870a6fb5',
+		 //      target: '.hbspt-form-footer-complete'
+		 //    });
 		<?php }else if(ICL_LANGUAGE_CODE == 'en_uk'){ ?>
-			app.templates.contact.init('#hsForm_cfe5b6da-8dbd-4a52-a3a2-36f8a428571c', "<?php echo ICL_LANGUAGE_CODE; ?>");
-			hbspt.forms.create({
-		      portalId: '388551',
-		      formId: 'cfe5b6da-8dbd-4a52-a3a2-36f8a428571c',
-		      target: '.hbspt-form-footer-complete'
-		    });  
-
+			app.templates.contact.init('#salesForce-Contact', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			// hbspt.forms.create({
+		 //      portalId: '388551',
+		 //      formId: 'cfe5b6da-8dbd-4a52-a3a2-36f8a428571c',
+		 //      target: '.hbspt-form-footer-complete'
+		 //    });  
 		<?php }else{ ?> //USA FORM
-			app.templates.contact.init('#hsForm_95289d3d-9fd2-41f0-a9f9-5a90917a65ed', "<?php echo ICL_LANGUAGE_CODE; ?>");
-			hbspt.forms.create({ 
-			    portalId: '388551',
-			    formId: '95289d3d-9fd2-41f0-a9f9-5a90917a65ed',
-			    target: '.hbspt-form-contact'
-			}); 
+			app.templates.contact.init('#salesForce-Contact', "<?php echo ICL_LANGUAGE_CODE; ?>");
+			// hbspt.forms.create({ 
+			//     portalId: '388551',
+			//     formId: '95289d3d-9fd2-41f0-a9f9-5a90917a65ed',
+			//     target: '.hbspt-form-contact'
+			// }); 
 		<?php } ?>
 
 	});

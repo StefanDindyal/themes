@@ -45,14 +45,23 @@ global $sitepress;
 						<p class="form-note">NOTE: If you are a consumer looking for more information on an ad that you were served by Undertone, <a href="<?php echo $sitepress->language_url(ICL_LANGUAGE_CODE); ?>opt-out-tool">click here</a>.</p>
 					</div>
 					<div class="modal-body">
-						<form class="newsletter-complete form-horizontal simple-form">
+						<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" class="newsletter-complete form-horizontal simple-form">
+
+							<input type=hidden name="oid" value="00D300000000bzX">
+							<input type=hidden name="retURL" value="http://">
+							<input  id="lead_source" name="lead_source" type="hidden" value="Sign Up for Updates Footer" />
+
+							<!-- Debug -->
+				          	<input type="hidden" name="debug" value=1>
+				          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+
 							<div class="control-group row">
 								<div class="col-xs-4">
 									<label class="control-label pull-right" for="newsFirstName">First Name*</label>
 								</div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<input id="newsFirstName" name="newsFirstName" type="text" class="form-control step">
+										<input id="newsFirstName" name="first_name" type="text" class="form-control step" required>
 										<span class="response-required">*</span>
 									</div>
 								</div>
@@ -63,7 +72,7 @@ global $sitepress;
 								</div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<input id="newsLastName" name="newsLastName" type="text" class="form-control step">
+										<input id="newsLastName" name="last_name" type="text" class="form-control step" required>
 										<span class="response-required">*</span>
 									</div>
 								</div>
@@ -74,7 +83,7 @@ global $sitepress;
 								</div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<input id="newsJob" name="newsJob" type="text" class="form-control step">
+										<input id="newsJob" name="title" type="text" class="form-control step" required>
 										<span class="response-required">*</span>
 									</div>
 								</div>
@@ -85,7 +94,7 @@ global $sitepress;
 								</div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<input id="newsCompany" name="newsCompany" type="text" class="form-control step">
+										<input id="newsCompany" name="company" type="text" class="form-control step" required>
 										<span class="response-required">*</span>
 									</div>
 								</div>
@@ -96,14 +105,27 @@ global $sitepress;
 								</div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<input id="email2" name="email2" type="text" class="form-control step">
+										<input id="email2" name="email" type="email" class="form-control step" required>
 										<span class="response-required">*</span>
 									</div>
 								</div>
 							</div>
 							<p class="text-center">Tell us what you are interested in <strong>(Select at least one)</strong>:</p>
 							<div class="control-group row">
-								<div class="option">
+								<div class="col-xs-3"></div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<select  id="00N1300000B4uTV" multiple="multiple" name="00N1300000B4uTV" title="Tell us what you are interested in" class="form-control">
+											<option value="Advertising">Advertising</option>
+											<option value="Brand Opportunities">Brand Opportunities</option>
+											<option value="Publisher Opportunities">Publisher Opportunities</option>
+											<option value="Working at Undertone">Working at Undertone</option>
+											<option value="Press and Media Questions">Press and Media Questions</option>
+											<option value="...I&#39;m not sure">...I&#39;m not sure</option>
+										</select>
+									</div>
+								</div>
+								<!-- <div class="option">
 									<div class="col-xs-4"><input class="pull-right footer-interest" value="" name="Advertising" type="checkbox"></div>
 									<div class="col-sm-6 col-xs-6"><span class="pull-left">Advertising</span></div>
 								</div>
@@ -126,8 +148,23 @@ global $sitepress;
 								<div class="option">
 									<div class="col-xs-4"><input class="pull-right footer-interest" name="...I'm not sure" type="checkbox"></div>
 									<div class="col-sm-6 col-xs-6"><span class="pull-left">...I'm not sure</span></div>
-								</div>
+								</div> -->
 							</div>
+							<div class="control-group row check">
+					        	<div class="col-xs-5">
+					              <label class="control-label pull-right question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+					            </div>
+					            <div class="col-sm-6 col-xs-7">
+					              <div class="controls">
+					                <input id="answer" name="answer" type="text" class="form-control answer">
+					              </div>
+					            </div>
+					          </div>
+					        <!-- <div class="control-group row">
+								<div class="col-xs-12 col-sm-12">
+									By Signing up you are agreeing to be added to the Undertone Newsletter.
+								</div>
+							</div> -->
 							<div class="control-group row">
 								<div class="col-xs-12 col-sm-12 sucess-message-form">
 									<h3>Thank you! Your information has been submitted.</h3>
@@ -169,7 +206,34 @@ global $sitepress;
 <script>
   $('document').ready(function() {
 
-	<?php  if (ICL_LANGUAGE_CODE == 'de') { ?>
+  	// Custom Code
+  	$(".footer-newsletter").click(function() {
+      $("#newsletter-part2").modal('show');
+    });
+  	var rand = Math.floor(Math.random() * 100) + 1;
+    var form = $('.newsletter-complete');
+    form.find('.question span').html(rand);
+    form.on('submit', function(e){
+      var el = $(this);
+      var check = el.find('.check');
+      var q = check.find('.question span');
+      var answer = check.find('.answer');
+      q = (q.text()) * 1;
+      answer = (answer.val()) * 1;
+      if(answer != ''){
+        if(q === answer){
+          return true;        
+        } else {
+          e.preventDefault();
+          alert('Incorrect Answer.');        
+        }
+      } else {
+        e.preventDefault();
+        alert('Please enter an answer.')
+      }
+    });
+
+	<?php /*if (ICL_LANGUAGE_CODE == 'de') { ?>
 		app.components.footer.init('#hsForm_b047913d-98d7-479d-be88-a8062ae583a1');
 		hbspt.forms.create({
 	      portalId: '388551',
@@ -190,7 +254,7 @@ global $sitepress;
 	      formId: 'e913810f-a7c2-4198-ac1d-6680d3a9b75e',
 	      target: '.hbspt-form-footer-complete'
 	    });  
-	<?php } ?>
+	<?php }*/ ?>
 	
   });
 </script>

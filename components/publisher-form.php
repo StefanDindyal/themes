@@ -9,7 +9,16 @@
 <div class="row publisher">
 	<div class="col-xs-12">
 		<div class="container">
-			<form class="publisher-form simple-form">				
+			<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" class="publisher-form simple-form">
+
+				<input type=hidden name="oid" value="00D300000000bzX">
+				<input type=hidden name="retURL" value="http://">
+				<input  id="lead_source" name="lead_source" type="hidden" value="Publisher Page Form" />
+
+				<!-- Debug -->
+	          	<input type="hidden" name="debug" value=1>
+	          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+
 				<div class="row">
 					<div class="modal fade" id="publisher-form-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						<div class="modal-dialog" role="document">
@@ -36,43 +45,43 @@
 			          	</section>
 					</div>
 					<div class="form-group col-xs-12 col-sm-6">
-			    		<label class="input-label">First Name</label>
-			    		<input type="text" class="step form-control" name="firstName">
+			    		<label class="input-label">First Name *</label>
+			    		<input type="text" class="step form-control" name="first_name" required>
 			    		<span class="response-required">*</span>
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-6">
-			    		<label class="input-label">Last Name</label>
-			    		<input type="text" class="step form-control" name="lastName">
+			    		<label class="input-label">Last Name *</label>
+			    		<input type="text" class="step form-control" name="last_name" required>
 			    		<span class="response-required">*</span>
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-6">
-			    		<label class="input-label">Email Address</label>
-			    		<input type="text" class="step form-control" name="email">
+			    		<label class="input-label">Email Address *</label>
+			    		<input type="email" class="step form-control" name="email" required>
 						<span class="response-required">*</span>
 						<span class="response-caption bigger">(@)</span>	
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-6">
 			    		<label class="input-label">Phone Number</label>
-			    		<input type="text" title="Example: 000-000-0000" class="step form-control" name="phoneNumber">
+			    		<input type="tel" title="Example: 000-000-0000" class="step form-control" name="phone" required>
     					<span class="response-required">*</span>
 						<span class="response-caption bigger">(#)</span>
 			  		</div>
 			  		<div class="form-group col-xs-12">
 			  			<label class="input-label">Monthly Unique Traffic (choose one):</label>
 						<label class="radio-inline">
-							<input type="radio" name="montlyTraffic" value="<250,000"  checked="checked" > <span>250,000</span>
+							<input type="radio" name="00N1300000B4tOF" value="<250,000"  checked="checked" > <span>250,000</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="montlyTraffic" value="250,000 - 500,000" > <span>250,000-500,000</span>
+							<input type="radio" name="00N1300000B4tOF" value="250,000 - 500,000" > <span>250,000-500,000</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="montlyTraffic" value="500,000 - 1M" > <span>500,000-1M</span>
+							<input type="radio" name="00N1300000B4tOF" value="500,000 - 1M" > <span>500,000-1M</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="montlyTraffic" value="1M - 5M" > <span>1M-5M</span>
+							<input type="radio" name="00N1300000B4tOF" value="1M - 5M" > <span>1M-5M</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="montlyTraffic" value="5M+" > <span>5M+</span>
+							<input type="radio" name="00N1300000B4tOF" value="5M+" > <span>5M+</span>
 						</label>
 			  		</div>
 			  		<div class="form-group col-xs-12">
@@ -81,39 +90,36 @@
 							<input type="radio" name="inventoryType" value="Owned and Operated Site" checked="checked" > <span>Owned and Operated Site</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="inventoryType" value="Site Representation" > <span>Site Representation</span>
+							<input type="radio" name="00N1300000B4tOK" value="Site Representation" > <span>Site Representation</span>
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="inventoryType" value="Other" > <span>Other</span>
+							<input type="radio" name="00N1300000B4tOK" value="Other" > <span>Other</span>
 						</label>
 			  		</div>
-			  		<div class="form-group col-xs-12">
-			  			<label class="input-label">Available Inventory (can select multiple):</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="availableInventory" value="Mobile Web"><span>Mobile Web</span>
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="availableInventory" value="Mobile App"> <span>Mobile App</span>
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="availableInventory" value="Tablet"> <span>Tablet</span>
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="availableInventory" value="Desktop"> <span>Desktop</span>
-						</label>
+			  		<div class="form-group col-xs-12 col-sm-6">
+			  			<label class="input-label">Available Inventory (can select multiple) *:</label>
+						<select style="width: 100%;" id="00N1300000B4tOP" multiple="multiple" name="00N1300000B4tOP" title="Available Inventory"><option value="Mobile Web">Mobile Web</option>
+						<option value="Mobile App">Mobile App</option>
+						<option value="Tablet">Tablet</option>
+						<option value="Desktop">Desktop</option>
+						</select>
 			  		</div>
 			  		<div class="col-xs-12">
 						<div class="message-container">
-							<p class="message-intro">How are you interested in working with us?</p>
-							<textarea tabindex="-1" name="message" class="step message" rows="5"></textarea>
+							<p class="message-intro">How are you interested in working with us? *</p>
+							<textarea tabindex="-1" name="00N1300000B4tOU" class="step message" rows="5" required></textarea>
 							<span class="response-required text-response">*</span>
 						</div>
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-12">
-			    		<label class="input-label">Publisher URL</label>
-			    		<input type="text" title="Example: http://www.google.com" class="step form-control" name="website">
+			    		<label class="input-label">Publisher URL *</label>
+			    		<input type="text" title="Example: http://www.google.com" class="step form-control" name="00N1300000B4tOZ" required>
     					<span class="response-required">*</span>						
 			  		</div>
+			  		<div class="form-group col-xs-12 col-sm-6 check">
+			    		<label class="control-label question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+			    		<input id="answer" name="answer" type="text" class="form-control answer">			    		
+			  		</div>			  		
 			  		<div class="col-xs-12 submit-input">
 			  			<input class="btn btn-gray btn-default submit-publisher" type="submit" value="submit">
 			  		</div>
@@ -126,28 +132,53 @@
 </div>
 <script>
 	$(document).ready(function(){
-	<?php  if (ICL_LANGUAGE_CODE == 'de') { ?>
-		app.components.publisherForm.init('#hsForm_c3995fec-e2ce-40d7-8d5b-f0244492a125');
-		hbspt.forms.create({ 
-			portalId: '388551',
-			formId: 'c3995fec-e2ce-40d7-8d5b-f0244492a125',
-			target: '.hbspt-form'
-		});
-	<?php }else if(ICL_LANGUAGE_CODE == 'en-uk'){ ?>
-		app.components.publisherForm.init('#hsForm_6b76ae0e-97f8-4b9a-acd8-698d5ae216b8');
-		hbspt.forms.create({ 
-			portalId: '388551',
-			formId: '6b76ae0e-97f8-4b9a-acd8-698d5ae216b8',
-			target: '.hbspt-form'
-		}); 
+		
+		// Custom Code
+		var rand = Math.floor(Math.random() * 100) + 1;
+	    var form = $('.publisher-form');
+	    form.find('.question span').html(rand);
+	    form.on('submit', function(e){
+	      var el = $(this);
+	      var check = el.find('.check');
+	      var q = check.find('.question span');
+	      var answer = check.find('.answer');
+	      q = (q.text()) * 1;
+	      answer = (answer.val()) * 1;
+	      if(answer != ''){
+	        if(q === answer){
+	          return true;        
+	        } else {
+	          e.preventDefault();
+	          alert('Incorrect Answer.');        
+	        }
+	      } else {
+	        e.preventDefault();
+	        alert('Please enter an answer.')
+	      }
+	    });		
 
-	<?php }else{ ?> //USA FORM
-		app.components.publisherForm.init('#hsForm_2e6bdfa0-f0d3-4d45-a9bb-1d22c3d4d129');
-		hbspt.forms.create({ 
-			portalId: '388551',
-			formId: '2e6bdfa0-f0d3-4d45-a9bb-1d22c3d4d129',
-			target: '.hbspt-form'
-		});
-	<?php } ?>
+		<?php /*if (ICL_LANGUAGE_CODE == 'de') { ?>
+			app.components.publisherForm.init('#hsForm_c3995fec-e2ce-40d7-8d5b-f0244492a125');
+			hbspt.forms.create({ 
+				portalId: '388551',
+				formId: 'c3995fec-e2ce-40d7-8d5b-f0244492a125',
+				target: '.hbspt-form'
+			});
+		<?php }else if(ICL_LANGUAGE_CODE == 'en-uk'){ ?>
+			app.components.publisherForm.init('#hsForm_6b76ae0e-97f8-4b9a-acd8-698d5ae216b8');
+			hbspt.forms.create({ 
+				portalId: '388551',
+				formId: '6b76ae0e-97f8-4b9a-acd8-698d5ae216b8',
+				target: '.hbspt-form'
+			}); 
+
+		<?php }else{ ?> //USA FORM
+			app.components.publisherForm.init('#hsForm_2e6bdfa0-f0d3-4d45-a9bb-1d22c3d4d129');
+			hbspt.forms.create({ 
+				portalId: '388551',
+				formId: '2e6bdfa0-f0d3-4d45-a9bb-1d22c3d4d129',
+				target: '.hbspt-form'
+			});
+		<?php }*/ ?>
 	});
 </script>
