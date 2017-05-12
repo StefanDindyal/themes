@@ -51,9 +51,9 @@ global $sitepress;
 							<input type=hidden name="retURL" value="http://">
 							<input  id="lead_source" name="lead_source" type="hidden" value="Sign Up for Updates Footer" />
 
-							<!-- Debug -->
+							<!-- Debug 
 				          	<input type="hidden" name="debug" value=1>
-				          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+				          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com"> -->
 
 							<div class="control-group row">
 								<div class="col-xs-4">
@@ -152,7 +152,7 @@ global $sitepress;
 							</div>
 							<div class="control-group row check">
 					        	<div class="col-xs-5">
-					              <label class="control-label pull-right question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+					              <label class="control-label pull-right question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
 					            </div>
 					            <div class="col-sm-6 col-xs-7">
 					              <div class="controls">
@@ -222,7 +222,8 @@ global $sitepress;
       answer = (answer.val()) * 1;
       if(answer != ''){
         if(q === answer){
-          return true;        
+          $.post(form.attr('action'), form.serialize()), $("#modal-buttons").hide(), $(".sucess-message-form").show();
+          e.preventDefault();  
         } else {
           e.preventDefault();
           alert('Incorrect Answer.');        

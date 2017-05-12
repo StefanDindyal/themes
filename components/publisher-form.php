@@ -15,9 +15,9 @@
 				<input type=hidden name="retURL" value="http://">
 				<input  id="lead_source" name="lead_source" type="hidden" value="Publisher Page Form" />
 
-				<!-- Debug -->
+				<!-- Debug 
 	          	<input type="hidden" name="debug" value=1>
-	          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+	          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com"> -->
 
 				<div class="row">
 					<div class="modal fade" id="publisher-form-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -61,7 +61,7 @@
 						<span class="response-caption bigger">(@)</span>	
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-6">
-			    		<label class="input-label">Phone Number</label>
+			    		<label class="input-label">Phone Number *</label>
 			    		<input type="tel" title="Example: 000-000-0000" class="step form-control" name="phone" required>
     					<span class="response-required">*</span>
 						<span class="response-caption bigger">(#)</span>
@@ -117,7 +117,7 @@
     					<span class="response-required">*</span>						
 			  		</div>
 			  		<div class="form-group col-xs-12 col-sm-6 check">
-			    		<label class="control-label question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+			    		<label class="control-label question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
 			    		<input id="answer" name="answer" type="text" class="form-control answer">			    		
 			  		</div>			  		
 			  		<div class="col-xs-12 submit-input">
@@ -146,7 +146,8 @@
 	      answer = (answer.val()) * 1;
 	      if(answer != ''){
 	        if(q === answer){
-	          return true;        
+	          $.post(form.attr('action'), form.serialize()), app.components.publisherForm.thanks.init();
+          	  e.preventDefault();          
 	        } else {
 	          e.preventDefault();
 	          alert('Incorrect Answer.');        

@@ -1446,10 +1446,15 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             var a = [];
             $(".interest.selected").each(function() {
                 a.push($(this).attr("data-theme"))
-            }), O = $(xa + " " + ya), P = $(xa + " " + za), Q = $(xa + " " + Ba), R = $(xa + " " + Aa), S = $(xa + " " + Da), T = $(xa + " " + Ca), U = $(xa + " " + Fa), V = $(xa + " " + Ga), N = $(xa), O.val(I.val()), console.log(O), P.val(J.val()), Q.val(G.val()), R.val(H.val()), S.val(F.val()), T.val(E.val()), U.val(K.val()), V.val(r.val()), $.each(a, function(a, b) {
+            }), O = $(xa + " " + ya), P = $(xa + " " + za), Q = $(xa + " " + Ba), R = $(xa + " " + Aa), S = $(xa + " " + Da), T = $(xa + " " + Ca), U = $(xa + " " + Fa), V = $(xa + " " + Ga), N = $(xa), O.val(I.val()), P.val(J.val()), Q.val(G.val()), R.val(H.val()), S.val(F.val()), T.val(E.val()), U.val(K.val()), V.val(r.val()), $.each(a, function(a, b) {
                 // X = $(xa + " " + Ea + '[value="' + b + '"]'), X.prop("checked", !0)
                 $('#00N1300000B4uTV option[value="' + b + '"]').attr('selected','selected');
-            }), $('#salesForce-Contact').submit(), m()
+            }); 
+
+            // $('#salesForce-Contact').submit(), m(), l()
+
+            $.post( $('#salesForce-Contact').attr('action'), $('#salesForce-Contact').serialize() ), m(), l();
+
             //W = $(xa + " " + Ha),
             //W.prop("checked", s.prop("checked")),
             // N.submit()
@@ -1513,6 +1518,9 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             // Ha = '#salesForce-Contact .sfinput[name="sign_up_for_our_newsletter"]';
         app.templates.contact = {
             init: a
+        }
+        app.templates.contact.thank = {
+            init: l
         }
     }(),
     function() {
@@ -2526,8 +2534,8 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
         }
 
         function j() {
-            y.modal("show"), setTimeout(function() {
-                y.modal("hide")
+            $('#publisher-form-success').modal("show"), setTimeout(function() {
+                $('#publisher-form-success').modal("hide")
             }, 3e3)
         }
         var k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N = ".publisher-form",
@@ -2561,6 +2569,9 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             oa = '.hs-input[value="Desktop"]';
         app.components.publisherForm = {
             init: a
+        }
+        app.components.publisherForm.thanks = {
+            init: j
         }
     }(),
     function() {

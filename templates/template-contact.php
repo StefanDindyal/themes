@@ -186,9 +186,9 @@ $notSure     = get_field('not_sure');
 <input type=hidden name="retURL" value="http://">
 <input  id="lead_source" name="lead_source" type="hidden" value="Contact Us Form" />
 
-<!-- Debug -->
+<!-- Debug 
 <input type="hidden" name="debug" value=1>
-<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com"> -->
 
 <label for="first_name">First Name</label><input id="first_name" maxlength="40" name="first_name" size="20" type="text" class="sfinput" /><br>
 

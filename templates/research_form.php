@@ -24,9 +24,9 @@
           <input type=hidden name="retURL" value="http://">
           <input  id="lead_source" name="lead_source" type="hidden" value="White Paper Download" />
 
-          <!-- Debug -->
+          <!-- Debug 
           <input type="hidden" name="debug" value=1>
-          <input type="hidden" name="debugEmail" value="jcampanioni@undertone.com">
+          <input type="hidden" name="debugEmail" value="jcampanioni@undertone.com"> -->
 
           <p class="text-center"><strong>To access the full report, please provide the following info:</strong></p>
           <div class="control-group row">
@@ -88,7 +88,7 @@
           </div>
           <div class="control-group row check">
             <div class="col-xs-5">
-              <label class="control-label pull-right question" for="stateregionINPUT">What number is shown? (<span></span>)</label>
+              <label class="control-label pull-right question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
             </div>
             <div class="col-sm-6 col-xs-7">
               <div class="controls">
