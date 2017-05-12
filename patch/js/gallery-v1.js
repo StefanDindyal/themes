@@ -80,6 +80,9 @@
 			}
 			if(kind == 'expandableteaser' || kind == 'expandableadhesion'){
 				$('body').append('<div id="closegal" class="band">close X</div>');
+			} else if(kind == 'screenshift'){
+				$('body').append('<div id="closegal" class="low">close X</div>');
+				$('#overAll').addClass('low');
 			} else {
 				$('body').append('<div id="closegal">X</div>');
 			}			

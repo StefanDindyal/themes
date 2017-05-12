@@ -603,9 +603,9 @@ Author: Stefan Dindyal
 	top: 0;
 	left: auto;
 	right: 0;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
 	font-size: 18px;
 	font-weight: bold;
 	text-align: center;
@@ -629,6 +629,22 @@ Author: Stefan Dindyal
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	opacity: 1;
 }
+#closegal.low {
+	top: auto;
+	left: auto;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #262626;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	opacity: 1;
+}
 #overAll {
 	position: fixed;
 	top: 0;
@@ -640,6 +656,9 @@ Author: Stefan Dindyal
 	display: block;
 	-webkit-overflow-scrolling: touch;
 	overflow-y: scroll;
+}
+#overAll.low {
+	padding-bottom: 40px;
 }
 #frameDemo {
 	display: block;
