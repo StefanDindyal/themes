@@ -7,6 +7,7 @@
   $infoGraphicIntro = get_field('infographic_intro');
   $bullets          = get_field('bullets_section');
   $cover            = get_field('cover_photo');
+  $hubspotCode      = get_field('hubspot_code');
 ?>
 
 <div class="row research-content">
@@ -24,8 +25,9 @@
       <?php echo $bullets; ?>
     </div>
     <?php if($hubspotCode !== ''){ ?>
-    <div class="download-report">
-      <p class="text-center"><a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#reportForm">Download Full Report</a></p>
+    <div class="report"> <!-- download-report -->
+      <!-- <p class="text-center"><a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#reportForm">Download Full Report</a></p> -->
+      <p class="text-center"><a href="<?php echo $hubspotCode; ?>" class="btn btn-secondary">Download Full Report</a></p>
     </div>
     <?php } ?>
   </div>
