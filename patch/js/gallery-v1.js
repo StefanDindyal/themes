@@ -50,6 +50,8 @@
 			var it = $(this);
 			var code = it.attr('data-code');
 			var state = 'demo';
+			var name = it.parents('.gallery-post').find('.visibleTittle.info-it').text();
+			name = name.toLowerCase();
 			var kind = it.parents('.gallery-post').find('.product.info-it').text();
 			kind = kind.replace(/\s/g,'').toLowerCase();
 			console.log(kind);
@@ -79,7 +81,11 @@
 				$('body').append('<div id="demoOverlay" class="opaque"></div>');
 			}
 			if(kind == 'expandableteaser' || kind == 'expandableadhesion'){
-				$('body').append('<div id="closegal" class="band">close X</div>');
+				if(name.indexOf('raymour') !== -1){
+					$('body').append('<div id="closegal">X</div>');					
+				} else {
+					$('body').append('<div id="closegal" class="band">close X</div>');
+				}				
 			} else if(kind == 'screenshift'){
 				$('body').append('<div id="closegal" class="low">close X</div>');
 				$('#overAll').addClass('low');
