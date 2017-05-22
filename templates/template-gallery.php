@@ -35,15 +35,15 @@
             {{/each}}            
           </div>
           <div class="act liner"></div>
-          <div class="act work-actions">
-            <div class="cap">
-              <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">View Campaign</span>
-            </div>
+          <div class="act work-actions">            
             <div class="cap">
               {{#if demoUrl}}
                 <span class="btn-cms btn-green demo-it" data-code="{{demoUrl}}">View Demo</span>
               {{/if}}
-            </div>            
+            </div>
+            <div class="cap">
+              <span class="btn-cms btn-green info-it" data-perm="{{permalink}}">Learn More</span>
+            </div>         
             <div class="cap play">
               {{#if demoUrl}}
                 <span class="btn-play demo-it" data-code="{{demoUrl}}"><span class="dashicons dashicons-controls-play"></span></span>
