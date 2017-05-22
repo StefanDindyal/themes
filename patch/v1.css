@@ -727,6 +727,20 @@ Author: Stefan Dindyal
 .filter-view .ico.active svg rect {
 	fill: #82be00;
 }
+.filter-nav .dropdown-menu {
+	z-index: 1000;
+}
+.filter-nav .dropdown-backdrop {
+	display: block;
+} 
+.gallery-contents.listed .overplay {
+	z-index: 10;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
 .gallery-contents .inner {
 	font-size: 0;
 }

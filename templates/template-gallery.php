@@ -22,6 +22,7 @@
       <img class="post-img img-responsive" src="{{image}}" />
       <div class="overlay"></div>
       <figcaption class="gallery-post-content">
+        <div class="overplay"></div>
         <div class="inner">
           <div class="act work-title">
             <h1 class="{{hideTittle}} info-it" data-perm="{{permalink}}">{{{title}}}</h1>
@@ -81,6 +82,25 @@
       app.templates.gallery.init();
     });
   </script>
+</div>
+
+<div class="modal fade" id="gallery-favs" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">&nbsp;</h4>
+      </div>
+      <div class="modal-body">
+        <div class="control-group row">
+          <div class="col-xs-12 col-sm-12 sucess-message-form">
+            <h3 style="text-align: center;">Check out some of our favorites!</h3>
+            <p class="final-message"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="<?php bloginfo('template_directory'); ?>/patch/js/gallery-v1.js" type="text/javascript" charset="utf-8"></script>

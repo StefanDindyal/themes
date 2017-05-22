@@ -1638,7 +1638,7 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             q || (q = new Waypoint({
                 element: p[0],
                 offset: "bottom-in-view",
-                handler: function(a) {
+                handler: function(a) {                    
                     if($('.favorite').hasClass('faved')){
 
                     } else {
@@ -1695,7 +1695,7 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             })
         }
 
-        function g(a) {            
+        function g(a) {     
             if($(this).hasClass('favorite')){
                 var b = $(this),
                 c = b.closest(".dropdown").first(),
@@ -1775,7 +1775,7 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 g = app.lib.util.getUrlParameter("feature"), 
                 h = app.lib.util.getUrlParameter("device"));
                 if(el && el.hasClass('favorite')){
-                    ("" === fav || null === fav || void 0 === fav) && (fav = true);
+                    ("" === fav || null === fav || void 0 === fav) && (fav = 'true');
                 }
                 ("" === d || null === d || void 0 === d) && (d = o.find(".dropdown.formats").data("selected")), 
                 ("" === e || null === e || void 0 === e) && (e = o.find(".dropdown.verticals").data("selected")), 
@@ -1785,6 +1785,12 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             var i = n.find(".gallery-contents"),
                 j = i.find(".gallery-contents-inner"),
                 k = n.find(".no-results");
+            console.log(fav);
+
+            if(fav == 'true'){
+                $('.favorite').addClass('faved').addClass('active');
+            }
+
             k.addClass("hidden"), 1 === a && i.addClass("loading"), o.addClass("loading"), $.get(ajaxUtil.url, {
                 nonce: ajaxUtil.nonce,
                 action: "gallery_get",
@@ -1818,8 +1824,13 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
                 c = o.find(".dropdown.verticals").data("selected"),
                 d = o.find(".dropdown.features").data("selected"),
                 e = o.find(".dropdown.devices").data("selected"),
-                fav = o.find(".favorite").data("selected");
-            "" !== b && null !== b && void 0 !== b && (a += "form=" + b + "&"), "" !== c && null !== c && void 0 !== c && (a += "vertical=" + c + "&"), "" !== d && null !== d && void 0 !== d && (a += "feature=" + d + "&"), "" !== e && null !== e && void 0 !== e && (a += "device=" + e + "&"), "" !== a && (a = window.location.pathname + "?" + a, window.history.replaceState(null, null, a))
+                fav;
+                if(o.find(".favorite").hasClass('faved')){
+                    fav = true;
+                } else {
+                    fav = '';
+                }               
+            "" !== b && null !== b && void 0 !== b && (a += "form=" + b + "&"), "" !== c && null !== c && void 0 !== c && (a += "vertical=" + c + "&"), "" !== d && null !== d && void 0 !== d && (a += "feature=" + d + "&"), "" !== e && null !== e && void 0 !== e && (a += "device=" + e + "&"), "" !== fav && null !== fav && void 0 !== fav && (a += "favorite=" + fav + "&"), "" !== a && (a = window.location.pathname + "?" + a, window.history.replaceState(null, null, a))
         }
         var n, o, p, q, r = ".gallery-post",
             s = 1,

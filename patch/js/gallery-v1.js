@@ -94,24 +94,38 @@
 			}			
 		});
 
-		$(document).on('click', '.filter-view .ico', function(e){
-			$('.filter-view .ico').removeClass('active');
-			$(this).addClass('active');		
+		$(document).on('click', '.listed .gallery-post-content .overplay', function(e){
+			$(this).parents('.gallery-post-content').find('.demo-it').trigger('click');
+		});
+
+		$(document).on('click', '.filter-view .ico', function(e){			
+			if($(this).hasClass('tile')){
+				$('.filter-view .ico.list').removeClass('active');
+				$(this).addClass('active');
+			} else if($(this).hasClass('list')){
+				$('.filter-view .ico.tile').removeClass('active');
+				$(this).addClass('active');
+			} else if($(this).hasClass('favorite')){
+				$(this).addClass('active');
+				$('#gallery-favs').modal("show"), setTimeout(function() {
+	                $('#gallery-favs').modal("hide")
+	            }, 3e3)
+			}							
 		});
 
 		$(document).on('click', '.filter-view .reset', function(e){
-			$('.filter-view .ico').removeClass('active');
+			$('.filter-view .ico.favorite').removeClass('active');
 		});
 
 		$(document).on('click', '#closegal', function(e){
 			clearDown();
 		});
 
-		window.onpopstate = function(event) {
-			if(event.state.a == 'gallery'){
-				clearDown();
-			}			
-		}
+		// window.onpopstate = function(event) {
+		// 	if(event.state.a == 'gallery'){
+		// 		clearDown();
+		// 	}			
+		// }
 
 		function clearDown(){
 			$('#closegal').remove();
