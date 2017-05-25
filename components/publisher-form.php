@@ -9,7 +9,7 @@
 <div class="row publisher">
 	<div class="col-xs-12">
 		<div class="container">
-			<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" class="publisher-form simple-form">
+			<form action="<?php the_permalink(); ?>" method="POST" class="publisher-form simple-form">
 
 				<input type=hidden name="oid" value="00D300000000bzX">
 				<input type=hidden name="retURL" value="http://">
@@ -20,7 +20,7 @@
 	          	<input type="hidden" name="debugEmail" value="jcampanioni@undertone.com"> -->
 
 				<div class="row">
-					<div class="modal fade" id="publisher-form-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<!-- <div class="modal fade" id="publisher-form-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group col-xs-12 col-sm-12" style="height: auto;">
 			  			<section class="dark-text">
 			  			  	<h1 class="main-title">Contact Us</h1>
@@ -116,10 +116,14 @@
 			    		<input type="text" title="Example: http://www.google.com" class="step form-control" name="00N1300000B4tOZ" required>
     					<span class="response-required">*</span>						
 			  		</div>
-			  		<div class="form-group col-xs-12 col-sm-6 check">
+			  		<!-- <div class="form-group col-xs-12 col-sm-6 check">
 			    		<label class="control-label question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
 			    		<input id="answer" name="answer" type="text" class="form-control answer">			    		
-			  		</div>			  		
+			  		</div> -->
+			  		<div class="col-xs-12 col-sm-12" style="text-align: center;">
+						<div id="recaptcha1" class="recaptcha"></div>
+					</div>
+					<input type="hidden" name="formType" value="publisher">		  		
 			  		<div class="col-xs-12 submit-input">
 			  			<input class="btn btn-gray btn-default submit-publisher" type="submit" value="submit">
 			  		</div>
@@ -134,29 +138,37 @@
 	$(document).ready(function(){
 		
 		// Custom Code
-		var rand = Math.floor(Math.random() * 100) + 1;
-	    var form = $('.publisher-form');
-	    form.find('.question span').html(rand);
-	    form.on('submit', function(e){
-	      var el = $(this);
-	      var check = el.find('.check');
-	      var q = check.find('.question span');
-	      var answer = check.find('.answer');
-	      q = (q.text()) * 1;
-	      answer = (answer.val()) * 1;
-	      if(answer != ''){
-	        if(q === answer){
-	          $.post(form.attr('action'), form.serialize()), app.components.publisherForm.thanks.init();
-          	  e.preventDefault();          
-	        } else {
-	          e.preventDefault();
-	          alert('Incorrect Answer.');        
-	        }
-	      } else {
-	        e.preventDefault();
-	        alert('Please enter an answer.')
-	      }
-	    });		
+		// var rand = Math.floor(Math.random() * 100) + 1;
+	 //    var form = $('.publisher-form');
+	 //    form.find('.question span').html(rand);
+	 //    form.on('submit', function(e){
+	 //      var el = $(this);
+	 //      var check = el.find('.check');
+	 //      var q = check.find('.question span');
+	 //      var answer = check.find('.answer');
+	 //      q = (q.text()) * 1;
+	 //      answer = (answer.val()) * 1;
+	 //      if(answer != ''){
+	 //        if(q === answer){
+	 //          $.post(form.attr('action'), form.serialize()), app.components.publisherForm.thanks.init();
+  //         	  e.preventDefault();          
+	 //        } else {
+	 //          e.preventDefault();
+	 //          alert('Incorrect Answer.');        
+	 //        }
+	 //      } else {
+	 //        e.preventDefault();
+	 //        alert('Please enter an answer.')
+	 //      }
+	 //    });
+
+	 	// if(formAction != '' && formQuery != ''){
+	  //   	$.post(formAction, formQuery), app.components.publisherForm.thanks.init();
+	  //   } else {
+	  //   	if(submitted){
+	  //   		alert('Please verify that you are not a robot');	
+	  //   	}    	
+	  //   }		
 
 		<?php /*if (ICL_LANGUAGE_CODE == 'de') { ?>
 			app.components.publisherForm.init('#hsForm_c3995fec-e2ce-40d7-8d5b-f0244492a125');

@@ -86,7 +86,7 @@
               </div>
             </div>
           </div>
-          <div class="control-group row check">
+          <!-- <div class="control-group row check">
             <div class="col-xs-5">
               <label class="control-label pull-right question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
             </div>
@@ -95,7 +95,10 @@
                 <input id="answer" name="answer" type="text" class="form-control answer">
               </div>
             </div>
-          </div>          
+          </div>  -->
+          <div class="col-xs-12 col-sm-12" style="text-align: center;">
+            <div class="g-recaptcha" data-sitekey="6Le22yAUAAAAACbltukt3mh589GVq3ou6NFPePB6"></div>
+          </div>         
           <p class="agreement">By clicking Submit. I agree to the <a href="<?php echo get_site_url(); ?>/privacy">Privacy Policy</a> and <a href="<?php echo get_site_url(); ?>/terms-conditions">Terms of Use</a>.</p>
           <div class="row modal-footer">
             <div class="col-xs-6">

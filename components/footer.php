@@ -45,7 +45,7 @@ global $sitepress;
 						<p class="form-note">NOTE: If you are a consumer looking for more information on an ad that you were served by Undertone, <a href="<?php echo $sitepress->language_url(ICL_LANGUAGE_CODE); ?>opt-out-tool">click here</a>.</p>
 					</div>
 					<div class="modal-body">
-						<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" class="newsletter-complete form-horizontal simple-form">
+						<form action="<?php the_permalink(); ?>" method="POST" class="newsletter-complete form-horizontal simple-form">
 
 							<input type=hidden name="oid" value="00D300000000bzX">
 							<input type=hidden name="retURL" value="http://">
@@ -151,14 +151,17 @@ global $sitepress;
 								</div> -->
 							</div>
 							<div class="control-group row check">
-					        	<div class="col-xs-5">
+					        	<!-- <div class="col-xs-5">
 					              <label class="control-label pull-right question" for="stateregionINPUT">Are you human? Enter this number (<span></span>)</label>
 					            </div>
 					            <div class="col-sm-6 col-xs-7">
 					              <div class="controls">
 					                <input id="answer" name="answer" type="text" class="form-control answer">
 					              </div>
-					            </div>
+					            </div> -->
+					            <div class="col-xs-12 col-sm-12" style="text-align: center;">
+									<div id="recaptcha2" class="recaptcha"></div>
+								</div>
 					          </div>
 					        <!-- <div class="control-group row">
 								<div class="col-xs-12 col-sm-12">
@@ -179,6 +182,7 @@ global $sitepress;
 									<button type="button" class="btn btn-gray btn-form-submit btn-form-modal-sm pull-left" data-dismiss="modal">Cancel</button>
 								</div>
 							</div>
+							<input type="hidden" name="formType" value="footer">
 		                </form>
 					</div>
 				</div>
@@ -186,6 +190,24 @@ global $sitepress;
 		</div>
 	</div>
 </footer>
+<div class="modal fade" id="contact-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Message Sent</h4>
+			</div>
+			<div class="modal-body">
+				<div class="control-group row">
+					<div class="col-xs-12 col-sm-12 sucess-message-form">
+						<h3 style="text-align: center;">Thank you! Your information has been submitted.</h3>
+						<p class="final-message"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- geo ip redirect -->
 <script type="text/javascript">
 	// Disabled
@@ -213,26 +235,49 @@ global $sitepress;
   	var rand = Math.floor(Math.random() * 100) + 1;
     var form = $('.newsletter-complete');
     form.find('.question span').html(rand);
-    form.on('submit', function(e){
-      var el = $(this);
-      var check = el.find('.check');
-      var q = check.find('.question span');
-      var answer = check.find('.answer');
-      q = (q.text()) * 1;
-      answer = (answer.val()) * 1;
-      if(answer != ''){
-        if(q === answer){
-          $.post(form.attr('action'), form.serialize()), $("#modal-buttons").hide(), $(".sucess-message-form").show();
-          e.preventDefault();  
-        } else {
-          e.preventDefault();
-          alert('Incorrect Answer.');        
-        }
-      } else {
-        e.preventDefault();
-        alert('Please enter an answer.')
-      }
-    });
+
+    if(formAction != '' && formQuery != ''){
+    	$.post(formAction, formQuery);
+    	if(formType == 'footer'){
+    		// $("#modal-buttons").hide(), $(".sucess-message-form").show();
+    		app.templates.contact.thank.init();
+    	} else if(formType == 'contact'){
+    		app.templates.contact.thank.init();
+    		app.templates.contact.dis.init();
+    	} else if(formType == 'publisher'){
+    		// app.components.publisherForm.thanks.init();
+    		app.templates.contact.thank.init();
+    	}
+    } else {
+    	if(submitted){
+    		alert('Please verify that you are not a robot');	
+    	}    	
+    }
+
+    // form.on('submit', function(e){
+    //   var el = $(this);
+    //   var check = el.find('.check');
+    //   var q = check.find('.question span');
+    //   var answer = check.find('.answer');
+    //   q = (q.text()) * 1;
+    //   answer = (answer.val()) * 1;
+
+    //   $.post(form.attr('action'), form.serialize()), $("#modal-buttons").hide(), $(".sucess-message-form").show();
+    //   e.preventDefault();
+
+    //   if(answer != ''){
+    //     if(q === answer){
+    //       $.post(form.attr('action'), form.serialize()), $("#modal-buttons").hide(), $(".sucess-message-form").show();
+    //       e.preventDefault();  
+    //     } else {
+    //       e.preventDefault();
+    //       alert('Incorrect Answer.');        
+    //     }
+    //   } else {
+    //     e.preventDefault();
+    //     alert('Please enter an answer.');
+    //   // }
+    // });
 
 	<?php /*if (ICL_LANGUAGE_CODE == 'de') { ?>
 		app.components.footer.init('#hsForm_b047913d-98d7-479d-be88-a8062ae583a1');

@@ -150,6 +150,10 @@ $notSure     = get_field('not_sure');
 								<input type="checkbox" class="newsletter" name="newsletter" disabled> 
 								<p class="legend">Sign-Up for our Updates</p>
 							</div> -->
+							<div class="col-xs-12 col-sm-12" style="text-align: center;">
+								<br>
+								<div id="recaptcha1" class="recaptcha"></div>
+							</div>
 					      	<input type="submit" tabindex="-1" class="submit-contact btn btn-gray btn-default disabled" value="Submit">
 						</div>						
 					</div>
@@ -159,7 +163,7 @@ $notSure     = get_field('not_sure');
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="contact-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- <div class="modal fade" id="contact-success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -176,11 +180,11 @@ $notSure     = get_field('not_sure');
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- New Form -->
 <div style="display: none;">
-<form id="salesForce-Contact" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<form id="salesForce-Contact" action="<?php the_permalink(); ?>" method="POST">
 
 <input type=hidden name="oid" value="00D300000000bzX">
 <input type=hidden name="retURL" value="http://">
@@ -213,6 +217,10 @@ Tell us what you are interested in:<select id="00N1300000B4uTV" multiple="multip
 I heard about Undertone from:<input id="00N1300000B4qA5" maxlength="255" name="00N1300000B4qA5" size="20" type="text" class="sfinput" /><br>
 
 Your message:<textarea id="00N1300000B4uTa" name="00N1300000B4uTa" rows="3" type="text" wrap="soft" class="sfinput"></textarea><br>
+
+<input id="g-recaptcha-response-real" type=hidden name="g-recaptcha-response" value="">
+
+<input type="hidden" name="formType" value="contact">
 
 <input type="submit" name="Send">
 

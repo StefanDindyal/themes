@@ -97,6 +97,10 @@ Author: Stefan Dindyal
 	margin-bottom: 35px;
 }
 
+.recaptcha {
+	display: inline-block;
+}
+
 /*Insights*/
 
 /*About*/

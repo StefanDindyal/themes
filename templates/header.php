@@ -1,4 +1,5 @@
 <?php
+
 	// OPEN sky
 	echo '<div id="sky">';
 	// Desktop navigation bar

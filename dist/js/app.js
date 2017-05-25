@@ -1449,11 +1449,21 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
             }), O = $(xa + " " + ya), P = $(xa + " " + za), Q = $(xa + " " + Ba), R = $(xa + " " + Aa), S = $(xa + " " + Da), T = $(xa + " " + Ca), U = $(xa + " " + Fa), V = $(xa + " " + Ga), N = $(xa), O.val(I.val()), P.val(J.val()), Q.val(G.val()), R.val(H.val()), S.val(F.val()), T.val(E.val()), U.val(K.val()), V.val(r.val()), $.each(a, function(a, b) {
                 // X = $(xa + " " + Ea + '[value="' + b + '"]'), X.prop("checked", !0)
                 $('#00N1300000B4uTV option[value="' + b + '"]').attr('selected','selected');
-            }); 
+            }), $('#g-recaptcha-response-real').val($('#g-recaptcha-response').val()); 
 
             // $('#salesForce-Contact').submit(), m(), l()
 
-            $.post( $('#salesForce-Contact').attr('action'), $('#salesForce-Contact').serialize() ), m(), l();
+            $('#salesForce-Contact').submit();
+
+            // if(formAction != '' && formQuery != ''){
+            //     // $.post(formAction, formQuery), m(), l();
+            // } else {
+            //     if(submitted){
+            //         alert('Please verify that you are not a robot');    
+            //     }       
+            // }   
+
+            // $.post( $('#salesForce-Contact').attr('action'), $('#salesForce-Contact').serialize() ), m(), l();
 
             //W = $(xa + " " + Ha),
             //W.prop("checked", s.prop("checked")),
@@ -1521,6 +1531,9 @@ app.modules = {}, app.components = {}, app.templates = {}, app.lib = {}, app.ins
         }
         app.templates.contact.thank = {
             init: l
+        }
+        app.templates.contact.dis = {
+            init: m
         }
     }(),
     function() {
