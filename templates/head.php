@@ -57,21 +57,25 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/patch/v1.css">
   <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
-    <script>
-      var recaptcha1;
-      var recaptcha2;
-      var myCallBack = function() {
-        //Render the recaptcha1 on the element with ID "recaptcha1"
-        recaptcha1 = grecaptcha.render('recaptcha1', {
-          'sitekey' : '6Le22yAUAAAAACbltukt3mh589GVq3ou6NFPePB6', //Replace this with your Site key
-          'theme' : 'light'
-        });
-        
-        //Render the recaptcha2 on the element with ID "recaptcha2"
-        recaptcha2 = grecaptcha.render('recaptcha2', {
-          'sitekey' : '6Le22yAUAAAAACbltukt3mh589GVq3ou6NFPePB6', //Replace this with your Site key
-          'theme' : 'light'
-        });
-      };
-    </script>
+	<script>
+	  var recaptcha1;
+	  var recaptcha2;
+	  var myCallBack = function() {
+	    //Render the recaptcha1 on the element with ID "recaptcha1"
+	    if(document.getElementById("recaptcha1")){	    
+		    recaptcha1 = grecaptcha.render('recaptcha1', {
+		      'sitekey' : '6Le22yAUAAAAACbltukt3mh589GVq3ou6NFPePB6', //Replace this with your Site key
+		      'theme' : 'light'
+		    });
+		}
+	    
+	    //Render the recaptcha2 on the element with ID "recaptcha2"
+	    if(document.getElementById("recaptcha2")){
+		    recaptcha2 = grecaptcha.render('recaptcha2', {
+		      'sitekey' : '6Le22yAUAAAAACbltukt3mh589GVq3ou6NFPePB6', //Replace this with your Site key
+		      'theme' : 'light'
+		    });
+		}
+	  };
+	</script>
 </head>
