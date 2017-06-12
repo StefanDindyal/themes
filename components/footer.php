@@ -111,18 +111,86 @@ global $sitepress;
 								</div>
 							</div>
 							<p class="text-center">Tell us what you are interested in <strong>(Select at least one)</strong>:</p>
+							<style type="text/css" media="screen">
+								.simple-form .thin label.control-label {
+									line-height: normal;
+									cursor: pointer;
+								}								
+							</style>
+							<div class="thin">
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000Aror4">Advertising:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000Aror4" name="00N1300000Aror4" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000Aror9">Brand Opportunities:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000Aror9" name="00N1300000Aror9" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000ArorE">Publisher Opportunities:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000ArorE" name="00N1300000ArorE" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000ArorJ">Working at Undertone:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000ArorJ" name="00N1300000ArorJ" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000ArorO">Press and Media Questions:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000ArorO" name="00N1300000ArorO" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<label class="control-label pull-right" for="00N1300000ArorT">…I’m not sure:</label>
+								</div>
+								<div class="col-sm-6 col-xs-6">
+									<div class="controls">
+										<input  id="00N1300000ArorT" name="00N1300000ArorT" type="checkbox" value="1" />
+									</div>
+								</div>
+							</div>
+							</div>
 							<div class="control-group row">
 								<div class="col-xs-3"></div>
 								<div class="col-sm-6 col-xs-6">
 									<div class="controls">
-										<select  id="00N1300000B4uTV" multiple="multiple" name="00N1300000B4uTV" title="Tell us what you are interested in" class="form-control">
+										<!-- <select  id="00N1300000B4uTV" multiple="multiple" name="00N1300000B4uTV" title="Tell us what you are interested in" class="form-control">
 											<option value="Advertising">Advertising</option>
 											<option value="Brand Opportunities">Brand Opportunities</option>
 											<option value="Publisher Opportunities">Publisher Opportunities</option>
 											<option value="Working at Undertone">Working at Undertone</option>
 											<option value="Press and Media Questions">Press and Media Questions</option>
 											<option value="...I&#39;m not sure">...I&#39;m not sure</option>
-										</select>
+										</select> -->										
 									</div>
 								</div>
 								<!-- <div class="option">
