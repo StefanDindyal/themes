@@ -276,6 +276,47 @@ global $sitepress;
 		</div>
 	</div>
 </div>
+<?php 
+
+	$privacyMsg = get_post_meta( get_the_ID(), 'privacy_popup', true );
+
+?>
+<style type="text/css">
+	#privacy-new {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: white;
+		padding: 48px 10px 20px;
+		z-index: 99999;
+		display: none;
+		box-shadow: 0 0 10px rgba(0,0,0,0.75);
+		border-top: 2px solid #A8D532;
+	}
+	#privacy-new p {
+		margin-bottom: 0;
+	}
+	#privacy-new .content {
+		position: relative;
+		width: 100%;
+		max-width: 1024px;
+		margin: 0 auto;
+	}
+	#privacy-new .content .close {
+		position: absolute;
+		top: -30px;
+		right: 0;		
+	}
+</style>
+<div id="privacy-new">
+	<div class="inner">
+		<div class="content">
+			<div class="close">X</div>
+			<p><?php echo $privacyMsg; ?></p>
+		</div>
+	</div>
+</div>
 <!-- geo ip redirect -->
 <script type="text/javascript">
 	// Disabled
@@ -305,11 +346,12 @@ global $sitepress;
     form.find('.question span').html(rand);
 
     if(formAction != '' && formQuery != ''){
-    	$.post(formAction, formQuery);
+    	console.log(formQuery);
+    	// $.post(formAction, formQuery);
     	if(formType == 'footer'){
     		// $("#modal-buttons").hide(), $(".sucess-message-form").show();
     		app.templates.contact.thank.init();
-    	} else if(formType == 'contact'){
+    	} else if(formType == 'contact'){    		
     		app.templates.contact.thank.init();
     		app.templates.contact.dis.init();
     	} else if(formType == 'publisher'){
@@ -321,6 +363,21 @@ global $sitepress;
     		alert('Please verify that you are not a robot');	
     	}    	
     }
+
+    $(window).on('load', function(e){
+    	if($('.home.page').length){
+    		$('#privacy-new').slideDown(330);
+    		$('#privacy-new .close').on('click', function(e){
+    			$('#privacy-new').slideUp(330, function(){
+    				$(this).remove();
+    			});
+    		});
+    	}    		
+    });
+
+	// $('#privacy-new').modal("show"), setTimeout(function() {
+	// 	$('#privacy-new').modal("hide");
+	// }, 3e3);
 
     // form.on('submit', function(e){
     //   var el = $(this);
