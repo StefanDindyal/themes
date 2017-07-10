@@ -347,7 +347,7 @@ global $sitepress;
 
     if(formAction != '' && formQuery != ''){
     	console.log(formQuery);
-    	// $.post(formAction, formQuery);
+    	$.post(formAction, formQuery);
     	if(formType == 'footer'){
     		// $("#modal-buttons").hide(), $(".sucess-message-form").show();
     		app.templates.contact.thank.init();
