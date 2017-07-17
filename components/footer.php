@@ -288,7 +288,7 @@ global $sitepress;
 		left: 0;
 		width: 100%;
 		background-color: white;
-		padding: 48px 10px 20px;
+		padding: 10px 40px 10px;
 		z-index: 99999;
 		display: none;
 		box-shadow: 0 0 10px rgba(0,0,0,0.75);
@@ -303,20 +303,23 @@ global $sitepress;
 		max-width: 1024px;
 		margin: 0 auto;
 	}
-	#privacy-new .content .close {
+	#privacy-new .close {
 		position: absolute;
-		top: -30px;
-		right: 0;		
+		top: 10px;
+		right: 10px;
+		z-index: 2	;
 	}
 </style>
+<?php if($privacyMsg){ ?>
 <div id="privacy-new">
 	<div class="inner">
-		<div class="content">
-			<div class="close">X</div>
+		<div class="close">X</div>
+		<div class="content">			
 			<p><?php echo $privacyMsg; ?></p>
 		</div>
 	</div>
 </div>
+<?php } ?>
 <!-- geo ip redirect -->
 <script type="text/javascript">
 	// Disabled
